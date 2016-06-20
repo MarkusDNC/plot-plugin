@@ -61,6 +61,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         // Since this is a dummy, we just say 'hello world' and call that a build.
 
         listener.getLogger().println("Hello, "+ group +", "+ title +" " + dataFile +"!");
+        //System.out.println(PlotAction.getIconFileName);
         Series s = new CSVSeries( dataFile, "","OFF", "" , false );
         Plot plot = new Plot(title,"y",group,"1",dataFile,"Line",false,false,false,false,"0","100",s);
         plot.addBuild( build, listener.getLogger(), workspace );

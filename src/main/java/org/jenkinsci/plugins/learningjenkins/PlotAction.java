@@ -4,14 +4,19 @@
  */
 package org.jenkinsci.plugins.learningjenkins;
 
+import hudson.Functions;
 import hudson.model.AbstractProject;
 import hudson.model.Action;
+import hudson.model.Job;
+import jenkins.tasks.SimpleBuildStep;
 import org.apache.commons.collections.CollectionUtils;
 import org.kohsuke.stapler.StaplerProxy;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -20,20 +25,20 @@ import java.util.logging.Logger;
  *
  * @author Nigel Daley
  */
-public class PlotAction implements Action, StaplerProxy {
+public class PlotAction implements Action, StaplerProxy, SimpleBuildStep.LastBuildAction{
 
     private static final Logger LOGGER = Logger.getLogger(PlotAction.class
             .getName());
-    private final AbstractProject<?, ?> project;
+    private final Job<?, ?> job;
     private final PlotPublisher publisher;
 
-    public PlotAction(AbstractProject<?, ?> project, PlotPublisher publisher) {
-        this.project = project;
+    public PlotAction(Job<?, ?> job, PlotPublisher publisher) {
+        this.job = job;
         this.publisher = publisher;
     }
 
-    public AbstractProject<?, ?> getProject() {
-        return project;
+    public Job<?, ?> getJob() {
+        return job;
     }
 
     public String getDisplayName() {
@@ -41,7 +46,7 @@ public class PlotAction implements Action, StaplerProxy {
     }
 
     public String getIconFileName() {
-        return "graph.gif";
+        return Functions.getResourcePath() + "/plugin/learningjenkins/graph.gif";
     }
 
     public String getUrlName() {
@@ -66,7 +71,7 @@ public class PlotAction implements Action, StaplerProxy {
     // called from href created in PlotAction/index.jelly
     public PlotReport getDynamic(String group, StaplerRequest req,
             StaplerResponse rsp) throws IOException {
-        return new PlotReport(project,
+        return new PlotReport(job,
                 publisher.urlGroupToOriginalGroup(getUrlGroup(group)),
                 publisher.getPlots(getUrlGroup(group)));
     }
@@ -78,10 +83,15 @@ public class PlotAction implements Action, StaplerProxy {
     public Object getTarget() {
         List<String> groups = getOriginalGroups();
         if (groups != null && groups.size() == 1) {
-            return new PlotReport(project, groups.get(0),
+            return new PlotReport(job, groups.get(0),
                     publisher.getPlots(getUrlGroup(groups.get(0))));
         } else {
             return this;
         }
+    }
+
+    @Override
+    public Collection<? extends Action> getProjectActions() {
+        return Collections.singleton(this);
     }
 }

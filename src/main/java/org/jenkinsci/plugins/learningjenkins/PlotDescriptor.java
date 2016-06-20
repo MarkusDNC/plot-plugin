@@ -45,7 +45,7 @@ public class PlotDescriptor extends BuildStepDescriptor<Publisher> {
     @Override
     public Publisher newInstance(StaplerRequest req, JSONObject formData)
             throws FormException {
-        PlotPublisher publisher = new PlotPublisher();
+        PlotPublisher publisher = new PlotPublisher(true);
         for (Object data : SeriesFactory.getArray(formData.get("plots"))) {
             publisher.addPlot(bindPlot((JSONObject) data, req));
         }

@@ -482,11 +482,11 @@ public class Plot implements Comparable<Plot> {
      * directory where the CSV file is located. Unfortunately, a reference to
      * the project is not available when this object is created.
      *
-     * @param project
+     * @param job
      *            the project
      */
-    public void setProject(AbstractProject<?, ?> project) {
-        this.job = project;
+    public void setProject(Job<?, ?> job) {
+        this.job = job;
     }
 
     /**

@@ -18,6 +18,7 @@ import hudson.tasks.Recorder;
 import jenkins.tasks.SimpleBuildStep;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.kohsuke.stapler.DataBoundConstructor;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;
@@ -30,6 +31,9 @@ import java.util.logging.Logger;
  * @author Nigel Daley
  */
 public class PlotPublisher extends Recorder implements SimpleBuildStep {
+
+    @DataBoundConstructor
+    public PlotPublisher(Boolean enabled) {}
 
     private static final Logger LOGGER = Logger.getLogger(PlotPublisher.class
             .getName());
