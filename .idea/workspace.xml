@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e601315-2bf9-45b5-bfcf-c61a466be2a0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/Messages.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/Messages_ja.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotReport/index.jelly" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotReport/index_ja.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotReport/table_report.jelly" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotAction/index.jelly" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotAction/index_ja.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/learning-jenkins.iml" afterPath="$PROJECT_DIR$/learning-jenkins.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/steps/HelloWorldStep/config.jelly" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/steps/HelloWorldStep/config.jelly" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/index.jelly" afterPath="$PROJECT_DIR$/src/main/resources/index.jelly" />
     </list>
     <ignored path="learning-jenkins.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jelly" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.jelly" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotReport/index.jelly">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -81,6 +75,16 @@
               <folding>
                 <marker date="1466176236586" expanded="true" signature="1777:1837" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jelly" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotAction/index.jelly">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="56" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,15 +111,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlotPublisher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotPublisher.java">
+      <file leaf-file-name="index.jelly" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/index.jelly">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2397">
-              <caret line="198" column="73" selection-start-line="198" selection-start-column="73" selection-end-line="198" selection-end-column="73" />
-              <folding>
-                <element signature="e#4343#4344#0" expanded="true" />
-                <element signature="e#4388#4389#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="8" column="112" selection-start-line="8" selection-start-column="112" selection-end-line="8" selection-end-column="112" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,16 +150,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XMLSeries.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/XMLSeries.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -204,6 +195,7 @@
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotDescriptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Series.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/index.jelly" />
       </list>
     </option>
   </component>
@@ -351,7 +343,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PlotReport" />
+              <option name="myItemId" value="PlotAction" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -399,8 +391,8 @@
       <recent name="C:\Users\max\Documents\hms\Jenkins\learning-jenkins\src\main\resources\org\jenkinsci\plugins\learningjenkins\HelloWorldBuilder\steps" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\max\Documents\hms\Jenkins\learning-jenkins\src\main\resources\org\jenkinsci\plugins\learningjenkins\PlotReport" />
       <recent name="C:\Users\max\Documents\hms\Jenkins\learning-jenkins\src\main\resources\org\jenkinsci\plugins\learningjenkins" />
+      <recent name="C:\Users\max\Documents\hms\Jenkins\learning-jenkins\src\main\resources\org\jenkinsci\plugins\learningjenkins\PlotReport" />
       <recent name="C:\Users\max\Documents\hms\Jenkins\learning-jenkins\src\main\java\org\jenkinsci\plugins\learningjenkins" />
       <recent name="C:\Users\max\Documents\hms\Jenkins\learning-jenkins\src\main\java\org\jenkinsci\plugins\learningjenkins\steps" />
     </key>
@@ -832,12 +824,12 @@
       <updated>1466086415480</updated>
       <workItem from="1466086418759" duration="255000" />
       <workItem from="1466086698723" duration="6799000" />
-      <workItem from="1466161011367" duration="20182000" />
+      <workItem from="1466161011367" duration="21841000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27236000" />
+    <option name="totallyTimeSpent" value="28895000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1020,14 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/index.jelly">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/steps/HelloWorldStep/config.jelly">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1154,8 +1138,8 @@
         <state relative-caret-position="2397">
           <caret line="198" column="73" selection-start-line="198" selection-start-column="73" selection-end-line="198" selection-end-column="73" />
           <folding>
-            <element signature="e#4343#4344#0" expanded="true" />
-            <element signature="e#4388#4389#0" expanded="true" />
+            <element signature="e#4343#4344#0" expanded="false" />
+            <element signature="e#4388#4389#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1242,6 +1226,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/index.jelly">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="112" selection-start-line="8" selection-start-column="112" selection-end-line="8" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotReport/index.jelly">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1249,6 +1241,14 @@
           <folding>
             <marker date="1466176236586" expanded="true" signature="1777:1837" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotAction/index.jelly">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="56" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
