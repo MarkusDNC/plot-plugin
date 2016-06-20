@@ -137,14 +137,6 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
         return (p != null) ? p : new ArrayList<Plot>();
     }
 
-    /**
-     * Called by Jenkins.
-     */
-    @Override
-    public Action getProjectAction(AbstractProject<?, ?> project) {
-        return new PlotAction(project, this);
-    }
-
     @Override
     public BuildStepMonitor getRequiredMonitorService() {
         return BuildStepMonitor.BUILD;
@@ -184,6 +176,7 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
         for (Plot plot : getPlots()) {
             plot.addBuild(run, listener.getLogger(), workspace);
         }
+        run.addAction(new PlotBuildAction(run, getPlots()));
     }
 
     protected String originalGroupToUrlGroup(String originalGroup) {

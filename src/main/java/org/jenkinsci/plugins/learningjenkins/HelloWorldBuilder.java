@@ -16,6 +16,7 @@ import org.kohsuke.stapler.QueryParameter;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Sample {@link Builder}.
@@ -61,10 +62,12 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         // Since this is a dummy, we just say 'hello world' and call that a build.
 
         listener.getLogger().println("Hello, "+ group +", "+ title +" " + dataFile +"!");
-        //System.out.println(PlotAction.getIconFileName);
         Series s = new CSVSeries( dataFile, "","OFF", "" , false );
         Plot plot = new Plot(title,"y",group,"1",dataFile,"Line",false,false,false,false,"0","100",s);
         plot.addBuild( build, listener.getLogger(), workspace );
+        ArrayList<Plot> plots = new ArrayList<>();
+        plots.add(plot);
+        build.addAction( new PlotBuildAction( build, plots ) );
     }
 
     // Overridden for better type safety.

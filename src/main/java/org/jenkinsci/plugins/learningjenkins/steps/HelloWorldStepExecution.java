@@ -27,15 +27,9 @@ import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.Run;
 import hudson.model.TaskListener;
+import org.jenkinsci.plugins.learningjenkins.PlotPublisher;
 import org.jenkinsci.plugins.workflow.steps.AbstractSynchronousStepExecution;
 import org.jenkinsci.plugins.workflow.steps.StepContextParameter;
-
-
-
-
-
-
-
 
 /**
  * Created by max on 2016-06-16.
@@ -59,7 +53,9 @@ public class HelloWorldStepExecution extends AbstractSynchronousStepExecution {
 
     @Override
     protected Object run() throws Exception {
-
+        listener.getLogger().println("Running Plot Build step.");
+        PlotPublisher publisher = new PlotPublisher(true);
+        publisher.perform(build, ws, launcher, listener);
         return null;
     }
 
