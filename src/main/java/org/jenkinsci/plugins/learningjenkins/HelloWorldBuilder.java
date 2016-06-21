@@ -18,6 +18,7 @@ import org.kohsuke.stapler.QueryParameter;
 import javax.servlet.ServletException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Sample {@link Builder}.
@@ -40,6 +41,8 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     private final String group;
     private final String title;
     private final String dataFile;
+
+    private List<Plot> plots;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
@@ -66,7 +69,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         Series s = new CSVSeries( dataFile, "","OFF", "" , false );
         Plot plot = new Plot(title,"y",group,"10",dataFile,"Line",false,false,false,false,"0","100",s);
         plot.addBuild( build, listener.getLogger(), workspace );
-        ArrayList<Plot> plots = new ArrayList<>();
+        plots = new ArrayList<>();
         plots.add(plot);
         build.addAction( new PlotBuildAction( build, plots ) );
     }
@@ -78,7 +81,6 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     public DescriptorImpl getDescriptor() {
         return (DescriptorImpl)super.getDescriptor();
     }
-
 
     /**
      * Descriptor for {@link HelloWorldBuilder}. Used as a singleton.

@@ -20,7 +20,9 @@ public class PlotProjectAction implements Action{
     public PlotProjectAction(Job<?, ?> job, List<Plot> plots){
         this.project = job;
         publisher = new PlotPublisher(true);
-        publisher.setPlots( plots );
+        if( plots != null ) {
+            publisher.setPlots(plots);
+        }
     }
 
     @Override
