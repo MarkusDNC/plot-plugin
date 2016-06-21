@@ -31,7 +31,7 @@ public class PlotBuildAction extends InvisibleAction implements StaplerProxy, Si
 
     @Override
     public Collection<? extends Action> getProjectActions() {
-        return Collections.<Action>singleton(new PlotProjectAction(run.getParent()));
+        return Collections.<Action>singleton(new PlotProjectAction(run.getParent(), plots));
     }
 
     @Override
@@ -40,7 +40,7 @@ public class PlotBuildAction extends InvisibleAction implements StaplerProxy, Si
     }
 
 
-    // called from href created in PlotAction/index.jelly
+    // called from href created in PlotProjectAction/index.jelly
     public PlotReport getDynamic(String group, StaplerRequest req, StaplerResponse rsp) throws IOException {
         return new PlotReport(run.getParent(), group, plots);
     }

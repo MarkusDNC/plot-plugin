@@ -5,7 +5,6 @@
 package org.jenkinsci.plugins.learningjenkins;
 
 import au.com.bytecode.opencsv.CSVReader;
-import hudson.model.AbstractProject;
 import hudson.model.Job;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -30,7 +29,7 @@ public class PlotReport {
     private static final Logger LOGGER = Logger.getLogger(PlotReport.class
             .getName());
 
-    private final Job<?, ?> job;
+    private final Job<?, ?> project;
 
     /**
      * The sorted list of plots that belong to the same group.
@@ -47,12 +46,12 @@ public class PlotReport {
         Collections.sort(plots);
         this.plots = plots;
         this.group = group;
-        this.job = job;
+        this.project = job;
     }
 
     // called from PlotReport/index.jelly
-    public Job<?, ?> getJob() {
-        return job;
+    public Job<?, ?> getProject() {
+        return project;
     }
 
     // called from PlotReport/index.jelly
@@ -106,7 +105,7 @@ public class PlotReport {
         Plot plot = getPlot(i);
 
         // load existing csv file
-        File plotFile = new File(job.getRootDir(), plot.getCsvFileName());
+        File plotFile = new File(project.getRootDir(), plot.getCsvFileName());
         if (!plotFile.exists()) {
             return tableData;
         }
@@ -184,7 +183,7 @@ public class PlotReport {
 
     private Plot getPlot(int i) {
         Plot p = plots.get(i);
-        p.setProject(job);
+        p.setProject(project);
         return p;
     }
 
