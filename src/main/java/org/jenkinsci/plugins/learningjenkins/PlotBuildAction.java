@@ -2,6 +2,7 @@ package org.jenkinsci.plugins.learningjenkins;
 
 import hudson.FilePath;
 import hudson.model.Action;
+import hudson.model.InvisibleAction;
 import hudson.model.Run;
 import jenkins.tasks.SimpleBuildStep;
 import org.kohsuke.stapler.StaplerProxy;
@@ -18,7 +19,7 @@ import java.util.List;
  * Created by max on 2016-06-20.
  */
 @ExportedBean
-public class PlotBuildAction implements Action, StaplerProxy, SimpleBuildStep.LastBuildAction{
+public class PlotBuildAction extends InvisibleAction implements StaplerProxy, SimpleBuildStep.LastBuildAction{
 
     private Run<?, ?> run;
     private List<Plot> plots;
@@ -31,21 +32,6 @@ public class PlotBuildAction implements Action, StaplerProxy, SimpleBuildStep.La
     @Override
     public Collection<? extends Action> getProjectActions() {
         return Collections.<Action>singleton(new PlotProjectAction(run.getParent()));
-    }
-
-    @Override
-    public String getIconFileName() {
-        return "/plugin/learning-jenkins/graph.gif";
-    }
-
-    @Override
-    public String getDisplayName() {
-        return "Plots";
-    }
-
-    @Override
-    public String getUrlName() {
-        return "plot";
     }
 
     @Override
