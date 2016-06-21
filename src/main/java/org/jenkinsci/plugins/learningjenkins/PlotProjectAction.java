@@ -13,9 +13,10 @@ public class PlotProjectAction implements Action{
     public PlotProjectAction(Job<?, ?> job){
         this.job = job;
     }
+
     @Override
     public String getIconFileName() {
-        return "/plugin/learningjenkins/graph.gif";
+        return "/plugin/learning-jenkins/graph.gif";
     }
 
     @Override

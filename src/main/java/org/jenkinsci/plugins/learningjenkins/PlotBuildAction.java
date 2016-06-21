@@ -35,7 +35,7 @@ public class PlotBuildAction implements Action, StaplerProxy, SimpleBuildStep.La
 
     @Override
     public String getIconFileName() {
-        return "/plugin/learningjenkins/graph.gif";
+        return "/plugin/learning-jenkins/graph.gif";
     }
 
     @Override
