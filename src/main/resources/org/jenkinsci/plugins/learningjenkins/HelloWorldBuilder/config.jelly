@@ -1,22 +1,198 @@
+<!--
+/*
+ * Copyright (c) 2008-2009 Yahoo! Inc.  All rights reserved.
+ * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
+ -->
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
-  <!--
-    This jelly script is used for per-project configuration.
+  <f:entry>
 
-    See global.jelly for a general discussion about jelly script.
-  -->
+    <!--
 
-  <!--
-    Creates a text field that shows the value of the "name" property.
-    When submitted, it will be passed to the corresponding constructor parameter.
-  -->
-  <f:entry title="Plot group" field="group">
-    <f:textbox />
-  </f:entry>
-  <f:entry title="Plot title" field="title">
-    <f:textbox />
-  </f:entry>
-  <f:entry title="Data series file" field="dataFile">
-    <f:textbox />
+    <f:repeatable var="plot" items="${instance.plots}" name="plots" add="${%Add Plot}" minimum="1">
+      <div align="left">
+        <f:repeatableDeleteButton value="${%Delete Plot}"/>
+      </div>
+
+      <input name="csvFileName" type="hidden" value="${plot.csvFileName}" />
+
+            -->
+
+      <table width="100%">
+        <f:entry title="${%Plot group}" field="group" help="/plugin/learning-jenkins/help-group.html">
+          <f:textbox name="group" value="${plot.group}" clazz="required" />
+        </f:entry>
+        <f:entry title="${%Plot title}" field="title" help="/plugin/learning-jenkins/help-title.html">
+          <f:textbox  name="title" value="${plot.title}" />
+        </f:entry>
+
+
+
+        <f:entry title="${%Number of builds to include}" field="numBuilds" help="/plugin/learning-jenkins/help-numbuilds.html">
+          <input class="positive-number" type="text" name="numBuilds"
+                 style="width:20em" value="${plot.numBuilds}" />
+        </f:entry>
+        <f:entry title="${%Plot y-axis label}" field="plotYaxis" help="/plugin/plot/help-yaxis.html">
+          <f:textbox name="yaxis" value="${plot.yaxis}" />
+        </f:entry>
+        <f:entry title="${%Plot style}" field="style" help="/plugin/plot/help-style.html">
+          <select name="style">
+            <f:option value="area" selected="${plot.style=='area'}">${%Area}</f:option>
+            <f:option value="bar" selected="${plot.style=='bar'}">${%Bar}</f:option>
+            <f:option value="bar3d" selected="${plot.style=='bar3d'}">${%Bar 3D}</f:option>
+            <f:option value="line" selected="${plot.style=='line' || plot.style=='' || plot.style==null}">${%Line}</f:option>
+            <f:option value="lineSimple" selected="${plot.style=='lineSimple'}">${%Line simple}</f:option>
+            <f:option value="line3d" selected="${plot.style=='line3d'}">${%Line 3D}</f:option>
+            <f:option value="stackedArea" selected="${plot.style=='stackedArea'}">${%Stacked Area}</f:option>
+            <f:option value="stackedbar" selected="${plot.style=='stackedbar'}">${%Stacked Bar}</f:option>
+            <f:option value="stackedbar3d" selected="${plot.style=='stackedbar3d'}">${%Stacked Bar 3D}</f:option>
+            <f:option value="waterfall" selected="${plot.style=='waterfall'}">${%Waterfall}</f:option>
+          </select>
+        </f:entry>
+        <f:entry title="${%Build Descriptions as labels}" field="descLabel" help="/plugin/plot/help-useDescr.html">
+          <f:checkbox name="useDescr" checked="${plot.useDescr}" />
+        </f:entry>
+        <f:entry title="${%Exclude zero as default Y-axis value}" field="exclZero" help="/plugin/plot/help-exclZero.html">
+          <f:checkbox name="exclZero" checked="${plot.exclZero}" />
+        </f:entry>
+        <f:entry title="${%Use a logarithmic Y-axis}" help="/plugin/plot/help-logarithmic.html">
+          <f:checkbox name="logarithmic" checked="${plot.logarithmic}" />
+        </f:entry>
+        <f:entry title="${%Keep records for deleted builds}" help="/plugin/plot/help-keepRecords.html">
+          <f:checkbox name="keepRecords" checked="${plot.keepRecords}" />
+        </f:entry>
+        <f:entry title="${%Y-axis minimum}" help="/plugin/plot/help-yaxisMinimum.html">
+          <f:textbox name="yaxisMinimum" value="${plot.yaxisMinimum}" />
+        </f:entry>
+        <f:entry title="${%Y-axis maximum}" help="/plugin/plot/help-yaxisMaximum.html">
+          <f:textbox name="yaxisMaximum" value="${plot.yaxisMaximum}" />
+        </f:entry>
+
+
+        <f:entry title="" description="${%A new data series definition}">
+          <f:repeatable var="series" items="${plot.series}" minimum="1">
+            <table width="100%" bgcolor="#EEEEEE">
+              <f:entry title="${%Data series file}" help="/plugin/plot/help-series.html">
+                <f:textbox name="file" value="${series.file}"
+                           checkUrl="'descriptorByName/hudson.plugins.plot.PlotPublisher/checkSeriesFile?value='+toValue(this)" />
+              </f:entry>
+
+              <f:radioBlock name="fileType" value="properties" title="${%Load data from properties file}" help="/plugin/plot/help-properties.html" checked="${series.fileType=='properties' or series.fileType==null}">
+                <!-- Only property files have a legend label, csv pulls it from the column name, xml is TBD. -->
+                <f:entry title="${%Data series legend label}" help="/plugin/plot/help-legend.html">
+                  <f:textbox name="label" value="${series.label}" />
+                </f:entry>
+              </f:radioBlock>
+
+              <f:radioBlock name="fileType" value="csv" title="${%Load data from csv file}" help="/plugin/plot/help-csv.html" checked="${series.fileType=='csv'}">
+                <f:nested>
+                  <div>
+                    <table>
+                      <tr>
+                        <td></td>
+                        <th align="left">${%Include all columns}</th>
+                        <th align="left">${%Include columns by name}</th>
+                        <th align="left">${%Exclude columns by name}</th>
+                        <th align="left">${%Include columns by index}</th>
+                        <th align="left">${%Exclude columns by index}</th>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <f:radio name="inclusionFlag" value="OFF" checked="${series.inclusionFlag=='OFF' or series.inclusionFlag==null}" />
+                        </td>
+                        <td>
+                          <f:radio name="inclusionFlag" value="INCLUDE_BY_STRING" checked="${series.inclusionFlag=='INCLUDE_BY_STRING'}" />
+                        </td>
+                        <td>
+                          <f:radio name="inclusionFlag" value="EXCLUDE_BY_STRING" checked="${series.inclusionFlag=='EXCLUDE_BY_STRING'}" />
+                        </td>
+                        <td>
+                          <f:radio name="inclusionFlag" value="INCLUDE_BY_COLUMN" checked="${series.inclusionFlag=='INCLUDE_BY_COLUMN'}" />
+                        </td>
+                        <td>
+                          <f:radio name="inclusionFlag" value="EXCLUDE_BY_COLUMN" checked="${series.inclusionFlag=='EXCLUDE_BY_COLUMN'}" />
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <f:entry title="${%CSV Exclusion values}" help="/plugin/plot/help-csv-exclusions.html">
+                    <f:textbox name="exclusionValues" value="${series.exclusionValues}" />
+                  </f:entry>
+
+                  <f:entry title="${%URL}" help="/plugin/plot/help-csv-url.html">
+                    <f:textbox name="url" value="${series.url}" />
+                  </f:entry>
+
+                  <f:entry title="${%Display original csv above plot}" help="/plugin/plot/help-csv-table.html">
+                    <f:checkbox name="displayTableFlag" checked="${series.displayTableFlag}" />
+                  </f:entry>
+
+                </f:nested>
+              </f:radioBlock>
+
+              <f:radioBlock name="fileType" value="xml" title="${%Load data from xml file using xpath}" help="/plugin/plot/help-xml.html" checked="${series.fileType=='xml'}">
+                <f:nested title="XML nested">
+                  <div>
+                    <table>
+                      <tr>
+                        <td align="center">${%XPath Result type:}</td>
+                        <th align="center">${%Nodeset}</th>
+                        <th align="center">${%Node}</th>
+                        <th align="center">${%String}</th>
+                        <th align="center">${%Boolean}</th>
+                        <th align="center">${%Number}</th>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>
+                          <f:radio name="nodeType" value="NODESET" checked="${series.nodeType=='NODESET' or series.nodeType==null}" />
+                        </td>
+                        <td>
+                          <f:radio name="nodeType" value="NODE" checked="${series.nodeType=='NODE'}" />
+                        </td>
+                        <td>
+                          <f:radio name="nodeType" value="STRING" checked="${series.nodeType=='STRING'}" />
+                        </td>
+                        <td>
+                          <f:radio name="nodeType" value="BOOLEAN" checked="${series.nodeType=='BOOLEAN'}" />
+                        </td>
+                        <td>
+                          <f:radio name="nodeType" value="NUMBER" checked="${series.nodeType=='NUMBER'}" />
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <f:entry title="${%XPath Expression}" help="/plugin/plot/help-xml-xpath.html">
+                    <f:textbox name="xpath" value="${series.xpath}" />
+                  </f:entry>
+
+                  <f:entry title="${%URL}" help="/plugin/plot/help-xml-url.html">
+                    <f:textbox name="url" value="${series.url}" />
+                  </f:entry>
+                </f:nested>
+              </f:radioBlock>
+
+              <f:entry>
+                <div align="right">
+                  <f:repeatableDeleteButton value="${%Delete Data Series}"/>
+                </div>
+              </f:entry>
+            </table>
+          </f:repeatable>
+        </f:entry>
+
+
+<!--        <f:entry title="Data series file" field="dataFile">
+          <f:textbox />
+        </f:entry>-->
+
+      </table>
+    <!--
+        </f:repeatable>
+-->
+
+
   </f:entry>
 </j:jelly>

@@ -2,7 +2,6 @@ package org.jenkinsci.plugins.learningjenkins;
 import hudson.Launcher;
 import hudson.Extension;
 import hudson.FilePath;
-import hudson.model.Action;
 import hudson.util.FormValidation;
 import hudson.model.AbstractProject;
 import hudson.model.Run;
@@ -41,15 +40,37 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     private final String group;
     private final String title;
     private final String dataFile;
+    private final String numBuilds;
+    private final String yaxis;
+    private final String style;
+    private final Boolean useDescr;
+    private final Boolean exclZero;
+    private final Boolean logarithmic;
+    private final Boolean keepRecords;
+    private final String yaxisMinimum;
+    private final String yaxisMaximum;
 
     private List<Plot> plots;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public HelloWorldBuilder(String group, String title, String dataFile) {
+    public HelloWorldBuilder(String group, String title, String numBuilds, String yaxis, String style,
+                             Boolean useDescr, Boolean exclZero, Boolean logarithmic, Boolean keepRecords,
+                             String yaxisMinimum, String yaxisMaximum, String dataFile) {
         this.group = group;
         this.title = title;
+        this.numBuilds = numBuilds;
+        this.yaxis = yaxis;
+        this.style = style;
+        this.useDescr = useDescr;
+        this.exclZero = exclZero;
+        this.logarithmic = logarithmic;
+        this.keepRecords = keepRecords;
+        this.yaxisMinimum = yaxisMinimum;
+        this.yaxisMaximum = yaxisMaximum;
+
         this.dataFile = dataFile;
+
     }
 
     public String getGroup() {
@@ -60,14 +81,33 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     public String getDataFile() { return dataFile; }
 
+    public String getNumBuilds() { return numBuilds; }
+
+    public String getYaxis() { return yaxis; }
+
+    public String getStyle() { return style; }
+
+    public Boolean getUseDescr() { return useDescr; }
+
+    public Boolean getExclZero() { return exclZero; }
+
+    public Boolean getLogarithmic() { return logarithmic; }
+
+    public Boolean getKeepRecords() { return keepRecords; }
+
+    public String getYaxisMinimum() { return yaxisMinimum; }
+
+    public String getYaxisMaximum() { return yaxisMaximum; }
+
+
+
     @Override
     public void perform(Run<?,?> build, FilePath workspace, Launcher launcher, TaskListener listener) {
         // This is where you 'build' the project.
-        // Since this is a dummy, we just say 'hello world' and call that a build.
 
-        listener.getLogger().println("Hello, "+ group +", "+ title +" " + dataFile +"!");
+        listener.getLogger().println("Hello, "+ group +", "+ title +" " + dataFile + " " + numBuilds + " " + yaxis + "!");
         Series s = new CSVSeries( dataFile, "","OFF", "" , false );
-        Plot plot = new Plot(title,"y",group,"10",dataFile,"Line",false,false,false,false,"0","100",s);
+        Plot plot = new Plot(title, yaxis, group, numBuilds, dataFile, style, false, false, false, false, yaxisMinimum, yaxisMaximum, s);
         plot.addBuild( build, listener.getLogger(), workspace );
         plots = new ArrayList<>();
         plots.add(plot);
