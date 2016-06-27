@@ -39,7 +39,6 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     private final String group;
     private final String title;
-    private final String dataFile;
     private final String numBuilds;
     private final String yaxis;
     private final String style;
@@ -49,6 +48,9 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     private final Boolean keepRecords;
     private final String yaxisMinimum;
     private final String yaxisMaximum;
+    public String csvFileName;
+    /** List of data series. */
+    public List<Series> series;
 
     private List<Plot> plots;
 
@@ -56,7 +58,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     @DataBoundConstructor
     public HelloWorldBuilder(String group, String title, String numBuilds, String yaxis, String style,
                              Boolean useDescr, Boolean exclZero, Boolean logarithmic, Boolean keepRecords,
-                             String yaxisMinimum, String yaxisMaximum, String dataFile) {
+                             String yaxisMinimum, String yaxisMaximum, String csvFileName, List<Series> series) {
         this.group = group;
         this.title = title;
         this.numBuilds = numBuilds;
@@ -68,9 +70,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         this.keepRecords = keepRecords;
         this.yaxisMinimum = yaxisMinimum;
         this.yaxisMaximum = yaxisMaximum;
-
-        this.dataFile = dataFile;
-
+        this.csvFileName = csvFileName;
     }
 
     public String getGroup() {
@@ -78,8 +78,6 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     }
 
     public String getTitle() { return title; }
-
-    public String getDataFile() { return dataFile; }
 
     public String getNumBuilds() { return numBuilds; }
 
@@ -99,17 +97,18 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     public String getYaxisMaximum() { return yaxisMaximum; }
 
+    public List<Series> getSeries() { return series; }
+
 
 
     @Override
     public void perform(Run<?,?> build, FilePath workspace, Launcher launcher, TaskListener listener) {
         // This is where you 'build' the project.
 
-        listener.getLogger().println("Hello, "+ group +", "+ title +" " + dataFile + " " + numBuilds + " " + yaxis + "!");
-        Series s = new CSVSeries( dataFile, "","OFF", "" , false );
-        Plot plot = new Plot(title, yaxis, group, numBuilds, dataFile, style, false, false, false, false, yaxisMinimum, yaxisMaximum, s);
-        plot.addBuild( build, listener.getLogger(), workspace );
         plots = new ArrayList<>();
+        Plot plot = new Plot(title, yaxis, group, numBuilds, csvFileName, style, false, false, false, false, yaxisMinimum, yaxisMaximum);
+        plot.series = series;
+        plot.addBuild(build, listener.getLogger(), workspace);
         plots.add(plot);
         build.addAction( new PlotBuildAction( build, plots ) );
     }

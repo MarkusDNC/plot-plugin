@@ -14,10 +14,8 @@
       <div align="left">
         <f:repeatableDeleteButton value="${%Delete Plot}"/>
       </div>
-
-      <input name="csvFileName" type="hidden" value="${plot.csvFileName}" />
-
             -->
+      <input name="csvFileName" type="hidden" value="${plot.csvFileName}" />
 
       <table width="100%">
         <f:entry title="${%Plot group}" field="group" help="/plugin/learning-jenkins/help-group.html">
@@ -26,8 +24,6 @@
         <f:entry title="${%Plot title}" field="title" help="/plugin/learning-jenkins/help-title.html">
           <f:textbox  name="title" value="${plot.title}" />
         </f:entry>
-
-
 
         <f:entry title="${%Number of builds to include}" field="numBuilds" help="/plugin/learning-jenkins/help-numbuilds.html">
           <input class="positive-number" type="text" name="numBuilds"
@@ -71,11 +67,11 @@
 
 
         <f:entry title="" description="${%A new data series definition}">
-          <f:repeatable var="series" items="${plot.series}" minimum="1">
+          <f:repeatable field="series" items="${plot.series}" minimum="1">
             <table width="100%" bgcolor="#EEEEEE">
               <f:entry title="${%Data series file}" help="/plugin/plot/help-series.html">
                 <f:textbox name="file" value="${series.file}"
-                           checkUrl="'descriptorByName/hudson.plugins.plot.PlotPublisher/checkSeriesFile?value='+toValue(this)" />
+                           checkUrl="'descriptorByName/org.jenkinsci.plugins.learningjenkins.PlotPublisher/checkSeriesFile?value='+toValue(this)" />
               </f:entry>
 
               <f:radioBlock name="fileType" value="properties" title="${%Load data from properties file}" help="/plugin/plot/help-properties.html" checked="${series.fileType=='properties' or series.fileType==null}">

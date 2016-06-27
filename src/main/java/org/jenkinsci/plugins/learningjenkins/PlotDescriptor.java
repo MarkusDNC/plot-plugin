@@ -3,6 +3,7 @@ package org.jenkinsci.plugins.learningjenkins;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.model.AbstractProject;
+import hudson.model.Job;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Publisher;
 import hudson.util.FormValidation;
@@ -62,8 +63,8 @@ public class PlotDescriptor extends BuildStepDescriptor<Publisher> {
      * Checks if the series file is valid.
      */
     public FormValidation doCheckSeriesFile(
-            @AncestorInPath AbstractProject<?, ?> project,
+            @AncestorInPath Job<?, ?> project,
             @QueryParameter String value) throws IOException {
-        return FilePath.validateFileMask(project.getSomeWorkspace(), value);
+        return new FilePath( project.getRootDir() ).validateFileMask(value);
     }
 }

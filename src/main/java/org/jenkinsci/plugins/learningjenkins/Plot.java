@@ -203,26 +203,6 @@ public class Plot implements Comparable<Plot> {
         this.yaxisMaximum = yaxisMaximum;
     }
 
-    public Plot(String title, String yaxis, String group, String numBuilds,
-                String csvFileName, String style, boolean useDescr,
-                boolean keepRecords, boolean exclZero, boolean logarithmic,
-                String yaxisMinimum, String yaxisMaximum, Series series) {
-        this.title = title;
-        this.yaxis = yaxis;
-        this.group = group;
-        this.numBuilds = numBuilds;
-        this.csvFileName = csvFileName;
-        this.style = style;
-        this.useDescr = useDescr;
-        this.keepRecords = keepRecords;
-        this.exclZero = exclZero;
-        this.logarithmic = logarithmic;
-        this.yaxisMinimum = yaxisMinimum;
-        this.yaxisMaximum = yaxisMaximum;
-        this.series = new ArrayList<>();
-        this.series.add( series );
-    }
-
     /**
      * @deprecated Kept for backward compatibility.
      */

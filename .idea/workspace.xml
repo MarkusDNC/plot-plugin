@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e601315-2bf9-45b5-bfcf-c61a466be2a0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Plot.java" afterPath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Plot.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotDescriptor.java" afterPath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotDescriptor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Series.java" afterPath="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Series.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/config.jelly" afterPath="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/config.jelly" />
     </list>
     <ignored path="learning-jenkins.iws" />
@@ -33,53 +37,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlotBuildAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotBuildAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#798#806#0" expanded="true" />
-                <element signature="e#915#916#0" expanded="true" />
-                <element signature="e#942#943#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlotProjectAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotProjectAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#735#736#0" expanded="true" />
-                <element signature="e#794#795#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.jelly" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.jelly" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/config.jelly">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="77" column="89" selection-start-line="77" selection-start-column="89" selection-end-line="77" selection-end-column="89" />
+            <state relative-caret-position="-921">
+              <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloWorldBuilder.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SeriesFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/SeriesFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HelloWorldBuilder.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="113" column="63" selection-start-line="113" selection-start-column="63" selection-end-line="113" selection-end-column="63" />
+            <state relative-caret-position="294">
+              <caret line="110" column="60" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="60" />
               <folding>
-                <element signature="e#4125#4126#0" expanded="true" />
-                <element signature="e#4185#4186#0" expanded="true" />
+                <element signature="e#4052#4053#0" expanded="true" />
+                <element signature="e#4112#4113#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,9 +73,26 @@
       <file leaf-file-name="Series.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Series.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="797">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="318">
+              <caret line="136" column="36" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
+              <folding>
+                <element signature="e#4181#4182#0" expanded="true" />
+                <element signature="e#4224#4225#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlotDescriptor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotDescriptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="55" column="32" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#804#805#0" expanded="true" />
+                <element signature="e#864#865#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,24 +100,16 @@
       <file leaf-file-name="Plot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Plot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="180" column="31" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
+            <state relative-caret-position="311">
+              <caret line="549" column="35" selection-start-line="549" selection-start-column="35" selection-end-line="549" selection-end-column="35" />
               <folding>
-                <element signature="e#0#36710#0" expanded="true" />
+                <element signature="e#0#35912#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#8417#8418#0" expanded="true" />
-                <element signature="e#8448#8449#0" expanded="true" />
+                <element signature="e#7619#7620#0" expanded="true" />
+                <element signature="e#7650#7651#0" expanded="true" />
+                <element signature="e#9362#9363#0" expanded="true" />
+                <element signature="e#9391#9392#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlotPublisher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotPublisher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="153" column="7" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -151,11 +145,8 @@
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/CSVSeries.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/XMLSeries.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/SeriesFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Series.java" />
         <option value="$PROJECT_DIR$/src/main/resources/index.jelly" />
-        <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Plot.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotAction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotDescriptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/steps/HelloWorldStepExecution.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotReport.java" />
         <option value="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotReport/index.jelly" />
@@ -163,8 +154,12 @@
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotBuildAction.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotPublisher.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotProjectAction.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/config.jelly" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotDescriptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Plot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/TestSeries.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Series.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/config.jelly" />
       </list>
     </option>
   </component>
@@ -334,6 +329,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="learningjenkins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-jenkins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-jenkins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learningjenkins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlotReport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-jenkins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learning-jenkins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="learningjenkins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlotProjectAction" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -844,16 +899,16 @@
       <workItem from="1466086418759" duration="255000" />
       <workItem from="1466086698723" duration="6799000" />
       <workItem from="1466161011367" duration="35098000" />
-      <workItem from="1466516578446" duration="16612000" />
+      <workItem from="1466516578446" duration="38542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58764000" />
+    <option name="totallyTimeSpent" value="80694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -904,81 +959,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/Messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
-          <folding>
-            <element signature="e#4125#4126#0" expanded="true" />
-            <element signature="e#4185#4186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotPublisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2380">
-          <caret line="168" column="23" selection-start-line="168" selection-start-column="16" selection-end-line="168" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="30" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/steps/HelloWorldStepExecution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/steps/HelloWorldStep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="63" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#4125#4126#0" expanded="true" />
-            <element signature="e#4185#4186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/config.jelly" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/help-name.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1017,8 +997,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#4125#4126#0" expanded="true" />
-            <element signature="e#4185#4186#0" expanded="true" />
+            <element signature="e#4052#4053#0" expanded="true" />
+            <element signature="e#4112#4113#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1061,14 +1041,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="138" column="11" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PropertiesSeries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="58" column="53" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="53" />
-          <folding />
+          <folding>
+            <element signature="e#4787#4788#0" expanded="false" />
+            <element signature="e#4813#4814#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1084,14 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/SeriesFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1119,14 +1087,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotAction.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotCategoryDataset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PointURLGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1186,16 +1146,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotReport/index.jelly">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="44" column="32" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="32" />
-          <folding>
-            <marker date="1466519265991" expanded="true" signature="1777:1837" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotReport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1232,18 +1182,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotDescriptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="33" column="50" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/steps/HelloWorldStep/config.jelly">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1257,59 +1195,174 @@
         <state relative-caret-position="289">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#798#806#0" expanded="true" />
-            <element signature="e#915#916#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Series.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="797">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="113" column="63" selection-start-line="113" selection-start-column="63" selection-end-line="113" selection-end-column="63" />
-          <folding>
-            <element signature="e#4125#4126#0" expanded="true" />
-            <element signature="e#4185#4186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Plot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="180" column="31" selection-start-line="180" selection-start-column="31" selection-end-line="180" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#36710#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#8417#8418#0" expanded="true" />
-            <element signature="e#8448#8449#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#798#806#0" expanded="false" />
+            <element signature="e#915#916#0" expanded="false" />
+            <element signature="e#942#943#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotPublisher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="153" column="7" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="7" />
+        <state relative-caret-position="345">
+          <caret line="162" column="7" selection-start-line="162" selection-start-column="7" selection-end-line="162" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/PlotReport/index.jelly">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="44" column="32" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="32" />
+          <folding>
+            <marker date="1466519265991" expanded="true" signature="1777:1837" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="248" column="12" selection-start-line="248" selection-start-column="12" selection-end-line="248" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.625.3/jenkins-core-1.625.3-sources.jar!/hudson/FilePath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="228" column="11" selection-start-line="228" selection-start-column="11" selection-end-line="228" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.625.3/jenkins-core-1.625.3-sources.jar!/hudson/model/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="417" column="28" selection-start-line="417" selection-start-column="28" selection-end-line="417" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.625.3/jenkins-core-1.625.3-sources.jar!/hudson/model/AbstractBuild.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="290" column="21" selection-start-line="290" selection-start-column="21" selection-end-line="290" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.625.3/jenkins-core-1.625.3-sources.jar!/hudson/model/AbstractProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="557" column="35" selection-start-line="557" selection-start-column="35" selection-end-line="557" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.625.3/jenkins-core-1.625.3-sources.jar!/hudson/model/Job.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="123" column="22" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotCategoryDataset.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PlotDescriptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="55" column="32" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#804#805#0" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/nodeMonitors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/PropertiesSeries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="58" column="53" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/TestSeries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Series.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="136" column="36" selection-start-line="136" selection-start-column="36" selection-end-line="136" selection-end-column="36" />
+          <folding>
+            <element signature="e#4181#4182#0" expanded="true" />
+            <element signature="e#4224#4225#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder/config.jelly">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="77" column="89" selection-start-line="77" selection-start-column="89" selection-end-line="77" selection-end-column="89" />
+        <state relative-caret-position="-921">
+          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/SeriesFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/Plot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="549" column="35" selection-start-line="549" selection-start-column="35" selection-end-line="549" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#35912#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7619#7620#0" expanded="true" />
+            <element signature="e#7650#7651#0" expanded="true" />
+            <element signature="e#9362#9363#0" expanded="true" />
+            <element signature="e#9391#9392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/jenkinsci/plugins/learningjenkins/HelloWorldBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="110" column="60" selection-start-line="110" selection-start-column="51" selection-end-line="110" selection-end-column="60" />
+          <folding>
+            <element signature="e#4052#4053#0" expanded="true" />
+            <element signature="e#4112#4113#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
