@@ -8,7 +8,6 @@ package org.jenkinsci.plugins.learningjenkins;
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 import hudson.FilePath;
-import hudson.model.AbstractProject;
 import hudson.model.Job;
 import hudson.model.Run;
 import hudson.util.ChartUtil;

@@ -64,9 +64,12 @@
         <f:entry title="${%Y-axis maximum}" help="/plugin/plot/help-yaxisMaximum.html">
           <f:textbox name="yaxisMaximum" value="${plot.yaxisMaximum}" />
         </f:entry>
+        <f:entry title="Data series file" field="dataFile">
+          <f:textbox name="dataFile"/>
+        </f:entry>
 
 
-        <f:entry title="" description="${%A new data series definition}">
+        <!--<f:entry title="" description="${%A new data series definition}">
           <f:repeatable field="series" items="${plot.series}" minimum="1">
             <table width="100%" bgcolor="#EEEEEE">
               <f:entry title="${%Data series file}" help="/plugin/plot/help-series.html">
@@ -75,7 +78,7 @@
               </f:entry>
 
               <f:radioBlock name="fileType" value="properties" title="${%Load data from properties file}" help="/plugin/plot/help-properties.html" checked="${series.fileType=='properties' or series.fileType==null}">
-                <!-- Only property files have a legend label, csv pulls it from the column name, xml is TBD. -->
+                &lt;!&ndash; Only property files have a legend label, csv pulls it from the column name, xml is TBD. &ndash;&gt;
                 <f:entry title="${%Data series legend label}" help="/plugin/plot/help-legend.html">
                   <f:textbox name="label" value="${series.label}" />
                 </f:entry>
@@ -178,11 +181,9 @@
             </table>
           </f:repeatable>
         </f:entry>
+-->
 
 
-<!--        <f:entry title="Data series file" field="dataFile">
-          <f:textbox />
-        </f:entry>-->
 
       </table>
     <!--

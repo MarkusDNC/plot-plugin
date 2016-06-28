@@ -49,6 +49,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     private final String yaxisMinimum;
     private final String yaxisMaximum;
     public String csvFileName;
+    public String dataFile;
     /** List of data series. */
     public List<Series> series;
 
@@ -58,7 +59,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     @DataBoundConstructor
     public HelloWorldBuilder(String group, String title, String numBuilds, String yaxis, String style,
                              Boolean useDescr, Boolean exclZero, Boolean logarithmic, Boolean keepRecords,
-                             String yaxisMinimum, String yaxisMaximum, String csvFileName, List<Series> series) {
+                             String yaxisMinimum, String yaxisMaximum, String csvFileName, String dataFile, List<Series> series) {
         this.group = group;
         this.title = title;
         this.numBuilds = numBuilds;
@@ -71,6 +72,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         this.yaxisMinimum = yaxisMinimum;
         this.yaxisMaximum = yaxisMaximum;
         this.csvFileName = csvFileName;
+        this.dataFile = dataFile;
     }
 
     public String getGroup() {
@@ -97,6 +99,8 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     public String getYaxisMaximum() { return yaxisMaximum; }
 
+    public String getDataFile() { return dataFile; }
+
     public List<Series> getSeries() { return series; }
 
 
@@ -104,6 +108,8 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     @Override
     public void perform(Run<?,?> build, FilePath workspace, Launcher launcher, TaskListener listener) {
         // This is where you 'build' the project.
+
+        Series s = new CSVSeries( dataFile, "","OFF", "" , false );
 
         plots = new ArrayList<>();
         Plot plot = new Plot(title, yaxis, group, numBuilds, csvFileName, style, false, false, false, false, yaxisMinimum, yaxisMaximum);
