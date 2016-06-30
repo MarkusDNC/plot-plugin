@@ -11,14 +11,17 @@ import hudson.tasks.Builder;
 import hudson.tasks.BuildStepDescriptor;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.QueryParameter;
 
 import javax.servlet.ServletException;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 /**
  * Sample {@link Builder}.
@@ -50,7 +53,6 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     private final String yaxisMinimum;
     private final String yaxisMaximum;
     public String csvFileName;
-    public String dataFile;
     /** List of data series. */
     public List<Series> series;
 
@@ -64,7 +66,7 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     @DataBoundConstructor
     public HelloWorldBuilder(String group, String title, String numBuilds, String yaxis, String style,
                              Boolean useDescr, Boolean exclZero, Boolean logarithmic, Boolean keepRecords,
-                             String yaxisMinimum, String yaxisMaximum, String csvFileName, String dataFile,
+                             String yaxisMinimum, String yaxisMaximum, String csvFileName,
                              List<CSVSeries> csvSeries, List<PropertiesSeries> propertiesSeries, List<XMLSeries> xmlSeries) {
         this.group = group;
         this.title = title;
@@ -78,10 +80,13 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         this.yaxisMinimum = yaxisMinimum;
         this.yaxisMaximum = yaxisMaximum;
         this.csvFileName = csvFileName;
-        this.dataFile = dataFile;
         this.csvSeries = csvSeries;
         this.propertiesSeries = propertiesSeries;
         this.xmlSeries = xmlSeries;
+        this.series = new ArrayList<>();
+        if( csvSeries != null ){ this.series.addAll(csvSeries); }
+        if( xmlSeries != null ) { this.series.addAll(xmlSeries); }
+        if( propertiesSeries != null ) { this.series.addAll(propertiesSeries); }
     }
 
     public String getGroup() {
@@ -108,8 +113,6 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     public String getYaxisMaximum() { return yaxisMaximum; }
 
-    public String getDataFile() { return dataFile; }
-
     public List<Series> getSeries() { return series; }
 
     public List<CSVSeries> getCsvSeries() { return csvSeries; }
@@ -118,11 +121,16 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     public List<XMLSeries> getXmlSeries() { return xmlSeries; }
 
+    public String getCsvFileName() {
+        if ( StringUtils.isBlank(csvFileName)) {
+            csvFileName = "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
+        }
+        return csvFileName;
+    }
+
     @Override
     public void perform(Run<?,?> build, FilePath workspace, Launcher launcher, TaskListener listener) {
         // This is where you 'build' the project.
-
-        Series s = new CSVSeries( dataFile, "","OFF", "" , false );
 
         plots = new ArrayList<>();
         Plot plot = new Plot(title, yaxis, group, numBuilds, csvFileName, style, false, false, false, false, yaxisMinimum, yaxisMaximum);
