@@ -2,6 +2,7 @@ package org.jenkinsci.plugins.learningjenkins;
 import hudson.Launcher;
 import hudson.Extension;
 import hudson.FilePath;
+import hudson.model.Describable;
 import hudson.util.FormValidation;
 import hudson.model.AbstractProject;
 import hudson.model.Run;
@@ -53,13 +54,18 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     /** List of data series. */
     public List<Series> series;
 
+    public List<CSVSeries> csvSeries;
+    public List<PropertiesSeries> propertiesSeries;
+    public List<XMLSeries> xmlSeries;
+
     private List<Plot> plots;
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
     public HelloWorldBuilder(String group, String title, String numBuilds, String yaxis, String style,
                              Boolean useDescr, Boolean exclZero, Boolean logarithmic, Boolean keepRecords,
-                             String yaxisMinimum, String yaxisMaximum, String csvFileName, String dataFile, List<Series> series) {
+                             String yaxisMinimum, String yaxisMaximum, String csvFileName, String dataFile,
+                             List<CSVSeries> csvSeries, List<PropertiesSeries> propertiesSeries, List<XMLSeries> xmlSeries) {
         this.group = group;
         this.title = title;
         this.numBuilds = numBuilds;
@@ -73,6 +79,9 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
         this.yaxisMaximum = yaxisMaximum;
         this.csvFileName = csvFileName;
         this.dataFile = dataFile;
+        this.csvSeries = csvSeries;
+        this.propertiesSeries = propertiesSeries;
+        this.xmlSeries = xmlSeries;
     }
 
     public String getGroup() {
@@ -103,7 +112,11 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     public List<Series> getSeries() { return series; }
 
+    public List<CSVSeries> getCsvSeries() { return csvSeries; }
 
+    public List<PropertiesSeries> getPropertiesSeries() { return propertiesSeries; }
+
+    public List<XMLSeries> getXmlSeries() { return xmlSeries; }
 
     @Override
     public void perform(Run<?,?> build, FilePath workspace, Launcher launcher, TaskListener listener) {

@@ -5,10 +5,14 @@
 
 package org.jenkinsci.plugins.learningjenkins;
 
+import hudson.Extension;
 import hudson.FilePath;
+import hudson.model.Descriptor;
+import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.StaplerRequest;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -383,6 +387,20 @@ public class XMLSeries extends Series {
             if (LOGGER.isLoggable(defaultLogLevel))
                 LOGGER.log(defaultLogLevel, "Unable to add node: " + label
                         + " value: " + nodeValue);
+        }
+    }
+    @Override
+    public Descriptor<Series> getDescriptor() {
+        return new XMLSeries.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends Descriptor<Series> {
+        public String getDisplayName() { return ""; }
+
+        @Override
+        public Series newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return SeriesFactory.createSeries( formData, req );
         }
     }
 }

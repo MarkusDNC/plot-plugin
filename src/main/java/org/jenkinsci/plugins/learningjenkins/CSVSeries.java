@@ -6,13 +6,16 @@
 package org.jenkinsci.plugins.learningjenkins;
 
 import au.com.bytecode.opencsv.CSVReader;
+import hudson.Extension;
 import hudson.FilePath;
+import hudson.model.Descriptor;
+import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.ObjectUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.StaplerRequest;
 
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -311,6 +314,20 @@ public class CSVSeries extends Series {
                 }
                 break;
             }
+        }
+    }
+    @Override
+    public Descriptor<Series> getDescriptor() {
+        return new CSVSeries.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends Descriptor<Series> {
+        public String getDisplayName() { return ""; }
+
+        @Override
+        public Series newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return SeriesFactory.createSeries( formData, req );
         }
     }
 }

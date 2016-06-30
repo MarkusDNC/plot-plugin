@@ -5,10 +5,14 @@
 
 package org.jenkinsci.plugins.learningjenkins;
 
+import hudson.Extension;
 import hudson.FilePath;
+import hudson.model.Descriptor;
+import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.StaplerRequest;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -74,6 +78,20 @@ public class PropertiesSeries extends Series {
             return null;
         } finally {
             IOUtils.closeQuietly(in);
+        }
+    }
+    @Override
+    public Descriptor<Series> getDescriptor() {
+        return new PropertiesSeries.DescriptorImpl();
+    }
+
+    @Extension
+    public static class DescriptorImpl extends Descriptor<Series> {
+        public String getDisplayName() { return ""; }
+
+        @Override
+        public Series newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            return SeriesFactory.createSeries( formData, req );
         }
     }
 }
