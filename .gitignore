@@ -43,3 +43,8 @@ ehthumbs.db
 Thumbs.db
 /bin/
 
+# User specific files #
+#######################
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/*.iws
