@@ -45,6 +45,4 @@ Thumbs.db
 
 # User specific files #
 #######################
-**/.idea/workspace.xml
-**/.idea/tasks.xml
-**/.idea/*.iws
+**/.idea/*
