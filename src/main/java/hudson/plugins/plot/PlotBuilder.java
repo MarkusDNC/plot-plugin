@@ -26,7 +26,7 @@ import java.util.List;
  * <p>
  * When the user configures the project and enables this builder,
  * {@link DescriptorImpl#newInstance(StaplerRequest)} is invoked
- * and a new {@link HelloWorldBuilder} is created. The created
+ * and a new {@link PlotBuilder} is created. The created
  * instance is persisted to the project configuration XML by using
  * XStream, so this allows you to use instance fields (like {@link #group})
  * to remember the configuration.
@@ -36,7 +36,7 @@ import java.util.List;
  *
  * @author Kohsuke Kawaguchi
  */
-public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
+public class PlotBuilder extends Builder implements SimpleBuildStep {
 
     private final String group;
     private final String title;
@@ -61,10 +61,10 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
 
     // Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
     @DataBoundConstructor
-    public HelloWorldBuilder(String group, String title, String numBuilds, String yaxis, String style,
-                             Boolean useDescr, Boolean exclZero, Boolean logarithmic, Boolean keepRecords,
-                             String yaxisMinimum, String yaxisMaximum, String csvFileName,
-                             List<CSVSeries> csvSeries, List<PropertiesSeries> propertiesSeries, List<XMLSeries> xmlSeries) {
+    public PlotBuilder ( String group, String title, String numBuilds, String yaxis, String style,
+                         Boolean useDescr, Boolean exclZero, Boolean logarithmic, Boolean keepRecords,
+                         String yaxisMinimum, String yaxisMaximum, String csvFileName,
+                         List<CSVSeries> csvSeries, List<PropertiesSeries> propertiesSeries, List<XMLSeries> xmlSeries) {
         this.group = group;
         this.title = title;
         this.numBuilds = numBuilds;
@@ -146,12 +146,8 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     }
 
     /**
-     * Descriptor for {@link HelloWorldBuilder}. Used as a singleton.
+     * Descriptor for {@link PlotBuilder}. Used as a singleton.
      * The class is marked as public so that it can be accessed from views.
-     *
-     * <p>
-     * See <tt>src/main/resources/hudson/plugins/hello_world/HelloWorldBuilder/*.jelly</tt>
-     * for the actual HTML fragment for the configuration screen.
      */
     @Extension // This indicates to Jenkins that this is an implementation of an extension point.
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
