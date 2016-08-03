@@ -46,3 +46,4 @@ Thumbs.db
 # User specific files #
 #######################
 **/.idea/*
+*.iml
