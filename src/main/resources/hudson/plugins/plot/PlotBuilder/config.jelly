@@ -15,14 +15,19 @@
         <f:repeatableDeleteButton value="${%Delete Plot}"/>
       </div>
             -->
-      <input name="csvFileName" type="hidden" value="${plot.csvFileName}" />
+      <!-- <input name="csvFileName" type="hidden" value="${plot.csvFileName}" /> -->
 
       <table width="100%">
         <f:entry title="${%Plot group}" field="group" help="/plugin/plot/help-group.html">
           <f:textbox name="group" value="${plot.group}" clazz="required" />
         </f:entry>
+
+        <f:entry title="${%CSV filename}" field="csvFileName" help="/plugin/plot/help-csvfile.html">
+          <f:textbox name="csvFileName" value="${plot.csvFileName}" clazz="required"/>
+        </f:entry>
+
         <f:entry title="${%Plot title}" field="title" help="/plugin/plot/help-title.html">
-          <f:textbox  name="title" value="${plot.title}" />
+          <f:textbox name="title" value="${plot.title}" />
         </f:entry>
 
         <f:entry title="${%Number of builds to include}" field="numBuilds" help="/plugin/plot/help-numbuilds.html">
