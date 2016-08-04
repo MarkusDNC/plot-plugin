@@ -22,7 +22,7 @@
           <f:textbox name="group" value="${plot.group}" clazz="required" />
         </f:entry>
 
-        <f:entry title="${%CSV filename}" field="csvFileName" help="/plugin/plot/help-csvfile.html">
+        <f:entry title="${%CSV filename *}" field="csvFileName" help="/plugin/plot/help-csvfile.html">
           <f:textbox name="csvFileName" value="${plot.csvFileName}" clazz="required"/>
         </f:entry>
 
