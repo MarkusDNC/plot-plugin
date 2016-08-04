@@ -28,11 +28,13 @@
              ~ stapler-plugin.version: The Stapler Maven plugin version required by the plugin.
         -->
     </properties>
-    <artifactId>learning-jenkins</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>hpi</packaging>
-    <name>Learning Jenkins Plugin</name>
 
+    <artifactId>plot</artifactId>
+    <packaging>hpi</packaging>
+    <name>Plot plugin</name>
+    <version>1.10-SNAPSHOT</version>
+    <!-- <url>http://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin</url> -->
+    <url>https://github.com/MarkusDNC/plot-plugin</url>
 
     <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for the applicable one if needed. -->
     <licenses>
@@ -41,7 +43,6 @@
             <url>http://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
-
 
     <developers>
         <developer>

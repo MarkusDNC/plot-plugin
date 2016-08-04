@@ -1,5 +1,6 @@
 # Plot Plugin for Jenkins
 Working on adding Pipeline support to the Jenkins Plot Plugin
+This is a beta version at best so use it as such.
 
 ## Where are we?
 Currently this plugin supports Pipeline by choosing `Plot build` from `step: General Build Step` in the `Snippet Generator`. Note that this is an ongoing project, feel free to contribute.

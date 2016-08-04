@@ -27,7 +27,7 @@ public class PlotProjectAction implements Action{
 
     @Override
     public String getIconFileName() {
-        return "/plugin/learning-jenkins/graph.gif";
+        return "/plugin/plot-plugin/graph.gif";
     }
 
     @Override
