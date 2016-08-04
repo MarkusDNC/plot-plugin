@@ -21,7 +21,7 @@
         <!-- Skip javadoc generator -->
         <maven.javadoc.skip>true</maven.javadoc.skip>
         <!-- Skip findbugs -->
-        <maven.findbugs.skip>true</maven.findbugs.skip>
+        <!-- <maven.findbugs.skip>true</maven.findbugs.skip> -->
 
         <!-- Other properties you may want to use:
              ~ hpi-plugin.version: The HPI Maven Plugin version used by the plugin..
@@ -36,7 +36,6 @@
     <!-- <url>http://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin</url> -->
     <url>https://github.com/MarkusDNC/plot-plugin</url>
 
-    <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for the applicable one if needed. -->
     <licenses>
         <license>
             <name>MIT License</name>
