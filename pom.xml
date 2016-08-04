@@ -21,7 +21,7 @@
         <!-- Skip javadoc generator -->
         <maven.javadoc.skip>true</maven.javadoc.skip>
         <!-- Skip findbugs -->
-        <!-- <maven.findbugs.skip>true</maven.findbugs.skip> -->
+        <maven.findbugs.skip>false</maven.findbugs.skip>
 
         <!-- Other properties you may want to use:
              ~ hpi-plugin.version: The HPI Maven Plugin version used by the plugin..
