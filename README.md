@@ -6,8 +6,6 @@ This is a beta version at best so use it as such.
 ## Where are we?
 Currently this plugin supports Pipeline by choosing `Plot build` from `step: General Build Step` in the `Snippet Generator`.
 
-In the beginning this project was called `learning-jenkins`. I was doing just that and then used that project as a foundation for trying to get the Plot plugin to work with Pipeline (not a good practice I know). I have renamed the project but if you should see any residue of that in the code feel free to correct it or inform me.
-
 Note that this is an ongoing project, feel free to contribute.
 
 ## Using
