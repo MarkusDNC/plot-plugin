@@ -17,5 +17,5 @@ step([$class: 'PlotBuilder', csvFileName: 'foo-bar.csv', csvSeries: [[displayTab
 ```
 
 # Caution
-The pipeline support has come at the cost of Freestyle support. Although there have been no testing, changes have been made that might effect Freestyle projects. In those cases use the original plot plugin found [here]
+The pipeline support has come at the cost of Freestyle support. In the beginning I tried to combine support for both Freestyle and Pipline, but in the end I decided to focus on support for Pipeline. You can find the original plot plugin [here]
 (https://github.com/jenkinsci/plot-plugin).
