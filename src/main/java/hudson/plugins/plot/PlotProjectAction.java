@@ -32,7 +32,8 @@ public class PlotProjectAction implements Action{
 
     @Override
     public String getDisplayName() {
-        return "Plots";
+        //return "Plots";
+        return Messages.Plot_Action_DisplayName();
     }
 
     @Override
