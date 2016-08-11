@@ -1,4 +1,4 @@
-# Plot Plugin for Jenkins
+# Plot Plugin for Jenkins Pipeline
 Working on adding Pipeline support to the Jenkins Plot Plugin.
 
 This is a beta version at best so use it as such.
