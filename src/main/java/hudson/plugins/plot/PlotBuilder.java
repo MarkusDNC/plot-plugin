@@ -11,6 +11,7 @@ import hudson.tasks.BuildStepDescriptor;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.QueryParameter;
@@ -134,7 +135,12 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
         plot.series = series;
         plot.addBuild(build, listener.getLogger(), workspace);
         plots.add(plot);
-        build.addAction( new PlotBuildAction( build, plots ) );
+        PlotBuildAction buildAction = build.getAction( PlotBuildAction.class );
+        if( buildAction == null ){
+            build.addAction( new PlotBuildAction( build, plots ) );
+        } else {
+            buildAction.addPlots( plots );
+        }
     }
 
     // Overridden for better type safety.

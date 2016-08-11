@@ -8,10 +8,12 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Publisher;
 import hudson.util.FormValidation;
 import net.sf.json.JSONObject;
+import org.apache.commons.io.FileUtils;
 import org.kohsuke.stapler.AncestorInPath;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -65,6 +67,8 @@ public class PlotDescriptor extends BuildStepDescriptor<Publisher> {
     public FormValidation doCheckSeriesFile(
             @AncestorInPath Job<?, ?> project,
             @QueryParameter String value) throws IOException {
-        return new FilePath( project.getRootDir() ).validateFileMask(value);
+        FilePath fp = new  FilePath( project.getRootDir() ).withSuffix("/workspace");
+        System.out.println( fp.toString() );
+         return fp.validateFileMask(value);
     }
 }

@@ -34,4 +34,8 @@ public class PlotBuildAction extends InvisibleAction implements StaplerProxy, Si
     public Object getTarget() {
         return null;
     }
+
+    public void addPlots( List<Plot> plots ) {
+        this.plots.addAll( plots );
+    }
 }
