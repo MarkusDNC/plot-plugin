@@ -191,7 +191,7 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
          * This human readable group is used in the configuration screen.
          */
         public String getDisplayName() {
-            return "Plot build";
+            return "Plot build for Pipeline";
         }
 
         @Override
