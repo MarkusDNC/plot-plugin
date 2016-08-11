@@ -6,5 +6,5 @@
  */
  -->
 <div>
-  This plugin provides generic plotting (or graphing) capability. It has been modified to support Pipeline jobs.
+  This plugin provides generic plotting (or graphing) capability. It has been modified to only support Pipeline jobs.
 </div>
