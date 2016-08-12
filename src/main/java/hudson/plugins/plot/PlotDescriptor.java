@@ -67,7 +67,11 @@ public class PlotDescriptor extends BuildStepDescriptor<Publisher> {
     public FormValidation doCheckSeriesFile(
             @AncestorInPath Job<?, ?> project,
             @QueryParameter String value) throws IOException {
-
-         return new FilePath( new FilePath( project.getRootDir() ), "workspace" ).validateFileMask(value);
+        FilePath fp = new FilePath( new FilePath( project.getRootDir() ), "workspace" );
+        //Check if workspace folder is missing form root directory
+        if ( fp.validateFileMask( value ) == null ) {
+            return new FilePath( project.getRootDir() ).validateFileMask( value );
+        }
+         return fp.validateFileMask( value );
     }
 }
