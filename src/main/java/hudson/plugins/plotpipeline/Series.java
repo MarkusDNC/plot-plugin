@@ -3,7 +3,7 @@
  * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.Extension;
 import hudson.FilePath;
@@ -18,7 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Represents a plot data series configuration.
+ * Represents a plotpipeline data series configuration.
  *
  * @author Nigel Daley
  * @author Allen Reese
@@ -54,7 +54,7 @@ public abstract class Series extends AbstractDescribableImpl<Series> {
         // TODO: look into this, what do we do if there is no label?
         if (label == null)
         //    label = Messages.Plot_Missing();
-            throw new RuntimeException( "Label for plot missing!" );
+            throw new RuntimeException( "Label for plotpipeline missing!" );
 
 
         this.label = label;
@@ -74,7 +74,7 @@ public abstract class Series extends AbstractDescribableImpl<Series> {
     }
 
     /**
-     * Retrieves the plot data for one series after a build from the workspace.
+     * Retrieves the plotpipeline data for one series after a build from the workspace.
      *
      * @param workspaceRootDir
      *            the root directory of the workspace
@@ -82,7 +82,7 @@ public abstract class Series extends AbstractDescribableImpl<Series> {
      *            the build Number
      * @param logger
      *            the logger to use
-     * @return a PlotPoint array of points to plot
+     * @return a PlotPoint array of points to plotpipeline
      */
     public abstract List<PlotPoint> loadSeries(FilePath workspaceRootDir,
                                                int buildNumber, PrintStream logger);

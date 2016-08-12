@@ -1,4 +1,4 @@
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.model.Action;
 import hudson.model.Job;
@@ -38,7 +38,7 @@ public class PlotProjectAction implements Action{
 
     @Override
     public String getUrlName() {
-        return "plot";
+        return "plotpipeline";
     }
 
     // called from PlotAction/index.jelly
@@ -70,7 +70,7 @@ public class PlotProjectAction implements Action{
     }
 
     /**
-     * If there's only one plot category, simply display that category of
+     * If there's only one plotpipeline category, simply display that category of
      * reports on this view.
      */
     public Object getTarget() {

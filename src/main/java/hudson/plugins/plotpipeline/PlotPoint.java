@@ -3,21 +3,21 @@
  * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 public class PlotPoint {
     /**
-     * YValue for a plot point
+     * YValue for a plotpipeline point
      */
     private String yvalue;
 
     /**
-     * Url for a plot point, can be null
+     * Url for a plotpipeline point, can be null
      */
     private String url;
 
     /**
-     * Label for a plot point
+     * Label for a plotpipeline point
      */
     private String label;
 

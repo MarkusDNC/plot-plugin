@@ -1,4 +1,4 @@
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.model.Action;
 import hudson.model.InvisibleAction;

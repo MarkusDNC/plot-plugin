@@ -1,4 +1,4 @@
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 import hudson.Launcher;
 import hudson.Extension;
 import hudson.FilePath;
@@ -11,7 +11,6 @@ import hudson.tasks.BuildStepDescriptor;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.QueryParameter;
@@ -121,7 +120,7 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
 
     public String getCsvFileName() {
         if ( StringUtils.isBlank(csvFileName)) {
-            csvFileName = "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
+            csvFileName = "plotpipeline-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
         }
         return csvFileName;
     }

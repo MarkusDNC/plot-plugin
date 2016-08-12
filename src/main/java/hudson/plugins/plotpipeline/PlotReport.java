@@ -2,7 +2,7 @@
  * Copyright (c) 2007 Yahoo! Inc.  All rights reserved.
  * Copyrights licensed under the MIT License.
  */
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import au.com.bytecode.opencsv.CSVReader;
 import hudson.model.Job;
@@ -21,7 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Represents a plot report for a single group of plots.
+ * Represents a plotpipeline report for a single group of plots.
  *
  * @author Nigel Daley
  */

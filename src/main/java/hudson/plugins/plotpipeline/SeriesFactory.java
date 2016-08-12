@@ -3,7 +3,7 @@
  * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

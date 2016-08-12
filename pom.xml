@@ -98,6 +98,7 @@
         </plugins>
     </build>
 
+    <!-- Original Plot plugin -->
     <scm>
         <connection>scm:git:ssh://github.com/jenkinsci/plot-plugin.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/jenkinsci/plot-plugin.git</developerConnection>

@@ -3,7 +3,7 @@
  * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.Extension;
 import hudson.FilePath;
@@ -53,13 +53,13 @@ public class PropertiesSeries extends Series {
         }
 
         if (ArrayUtils.isEmpty(seriesFiles)) {
-            logger.println("No plot data file found: " + getFile());
+            logger.println("No plotpipeline data file found: " + getFile());
             return null;
         }
 
         try {
             in = seriesFiles[0].read();
-            logger.println("Saving plot series data from: " + seriesFiles[0]);
+            logger.println("Saving plotpipeline series data from: " + seriesFiles[0]);
             Properties properties = new Properties();
             properties.load(in);
             String yvalue = properties.getProperty("YVALUE");
@@ -73,7 +73,7 @@ public class PropertiesSeries extends Series {
             series.add(new PlotPoint(yvalue, url, getLabel()));
             return series;
         } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Exception reading plot series data from "
+            LOGGER.log(Level.SEVERE, "Exception reading plotpipeline series data from "
                     + seriesFiles[0], e);
             return null;
         } finally {

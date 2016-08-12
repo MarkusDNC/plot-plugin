@@ -1,4 +1,4 @@
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.Extension;
 import hudson.FilePath;
@@ -8,16 +8,14 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Publisher;
 import hudson.util.FormValidation;
 import net.sf.json.JSONObject;
-import org.apache.commons.io.FileUtils;
 import org.kohsuke.stapler.AncestorInPath;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
- * The Descriptor for the plot configuration Extension
+ * The Descriptor for the plotpipeline configuration Extension
  *
  * @author Nigel Daley
  * @author Thomas Fox
