@@ -11,28 +11,28 @@
 
         <table width="100%">
 
-            <f:entry title="${%Plot group}" field="group" help="/plugin/plot/help-group.html">
+            <f:entry title="${%Plot group}" field="group" help="/plugin/plot-pipeline/help-group.html">
                 <f:textbox name="group" value="${plot.group}" clazz="required"/>
             </f:entry>
 
-            <f:entry title="${%CSV filename *}" field="csvFileName" help="/plugin/plot/help-csvfile.html">
+            <f:entry title="${%CSV filename *}" field="csvFileName" help="/plugin/plot-pipeline/help-csvfile.html">
                 <f:textbox name="csvFileName" value="${plot.csvFileName}" clazz="required"/>
             </f:entry>
 
-            <f:entry title="${%Plot title}" field="title" help="/plugin/plot/help-title.html">
+            <f:entry title="${%Plot title}" field="title" help="/plugin/plot-pipeline/help-title.html">
                 <f:textbox name="title" value="${plot.title}"/>
             </f:entry>
 
-            <f:entry title="${%Number of builds to include}" field="numBuilds" help="/plugin/plot/help-numbuilds.html">
+            <f:entry title="${%Number of builds to include}" field="numBuilds" help="/plugin/plot-pipeline/help-numbuilds.html">
                 <input class="positive-number" type="text" name="numBuilds"
                        style="width:20em" value="${plot.numBuilds}"/>
             </f:entry>
 
-            <f:entry title="${%Plot y-axis label}" field="yaxis" help="/plugin/plot/help-yaxis.html">
+            <f:entry title="${%Plot y-axis label}" field="yaxis" help="/plugin/plot-pipeline/help-yaxis.html">
                 <f:textbox name="yaxis" value="${plot.yaxis}"/>
             </f:entry>
 
-            <f:entry title="${%Plot style}" field="style" help="/plugin/plot/help-style.html">
+            <f:entry title="${%Plot style}" field="style" help="/plugin/plot-pipeline/help-style.html">
                 <select name="style">
                     <f:option value="area" selected="${plot.style=='area'}">${%Area}</f:option>
                     <f:option value="bar" selected="${plot.style=='bar'}">${%Bar}</f:option>
@@ -49,24 +49,24 @@
                     <f:option value="waterfall" selected="${plot.style=='waterfall'}">${%Waterfall}</f:option>
                 </select>
             </f:entry>
-            <f:entry title="${%Build Descriptions as labels}" field="useDescr" help="/plugin/plot/help-useDescr.html">
+            <f:entry title="${%Build Descriptions as labels}" field="useDescr" help="/plugin/plot-pipeline/help-useDescr.html">
                 <f:checkbox name="useDescr" checked="${plot.useDescr}"/>
             </f:entry>
             <f:entry title="${%Exclude zero as default Y-axis value}" field="exclZero"
-                     help="/plugin/plot/help-exclZero.html">
+                     help="/plugin/plot-pipeline/help-exclZero.html">
                 <f:checkbox name="exclZero" checked="${plot.exclZero}"/>
             </f:entry>
-            <f:entry title="${%Use a logarithmic Y-axis}" field="logarithmic" help="/plugin/plot/help-logarithmic.html">
+            <f:entry title="${%Use a logarithmic Y-axis}" field="logarithmic" help="/plugin/plot-pipeline/help-logarithmic.html">
                 <f:checkbox name="logarithmic" checked="${plot.logarithmic}"/>
             </f:entry>
             <f:entry title="${%Keep records for deleted builds}" field="keepRecords"
-                     help="/plugin/plot/help-keepRecords.html">
+                     help="/plugin/plot-pipeline/help-keepRecords.html">
                 <f:checkbox name="keepRecords" checked="${plot.keepRecords}"/>
             </f:entry>
-            <f:entry title="${%Y-axis minimum}" field="yaxisMinimum" help="/plugin/plot/help-yaxisMinimum.html">
+            <f:entry title="${%Y-axis minimum}" field="yaxisMinimum" help="/plugin/plot-pipeline/help-yaxisMinimum.html">
                 <f:textbox name="yaxisMinimum" value="${plot.yaxisMinimum}"/>
             </f:entry>
-            <f:entry title="${%Y-axis maximum}" field="yaxisMaximum" help="/plugin/plot/help-yaxisMaximum.html">
+            <f:entry title="${%Y-axis maximum}" field="yaxisMaximum" help="/plugin/plot-pipeline/help-yaxisMaximum.html">
                 <f:textbox name="yaxisMaximum" value="${plot.yaxisMaximum}"/>
             </f:entry>
 
