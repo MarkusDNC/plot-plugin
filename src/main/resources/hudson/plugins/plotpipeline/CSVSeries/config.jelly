@@ -3,9 +3,9 @@
          xmlns:t="/lib/hudson" xmlns:f="/lib/form">
     <f:entry>
         <table width="100%" bgcolor="#EEEEEE">
-            <f:entry title="${%Data series file}" field="file" help="/plugin/plot/help-series.html">
+            <f:entry title="${%Data series file}" field="file" help="/plugin/plot-pipeline/help-series.html">
                 <f:textbox name="file" value="${series.file}"
-                           checkUrl="'descriptorByName/PlotPublisher/checkSeriesFile?value='+toValue(this)"/>
+                           checkUrl="'descriptorByName/PlotPipelinePublisher/checkSeriesFile?value='+toValue(this)"/>
             </f:entry>
             <f:nested>
                 <div>
@@ -43,15 +43,15 @@
                         </tr>
                     </table>
                 </div>
-                <f:entry title="${%CSV Exclusion values}" help="/plugin/plot/help-csv-exclusions.html">
+                <f:entry title="${%CSV Exclusion values}" help="/plugin/plot-pipeline/help-csv-exclusions.html">
                     <f:textbox name="exclusionValues" value="${series.exclusionValues}"/>
                 </f:entry>
 
-                <f:entry title="${%URL}" help="/plugin/plot/help-csv-url.html">
+                <f:entry title="${%URL}" help="/plugin/plot-pipeline/help-csv-url.html">
                     <f:textbox name="url" value="${series.url}"/>
                 </f:entry>
 
-                <f:entry title="${%Display original csv above plot}" help="/plugin/plot/help-csv-table.html">
+                <f:entry title="${%Display original csv above plot}" help="/plugins/plot-pipeline/help-csv-table.html">
                     <f:checkbox name="displayTableFlag" checked="${series.displayTableFlag}"/>
                 </f:entry>
                 <f:entry title="">

@@ -28,12 +28,12 @@ import java.util.logging.Logger;
  *
  * @author Nigel Daley
  */
-public class PlotPublisher extends Recorder implements SimpleBuildStep {
+public class PlotPipelinePublisher extends Recorder implements SimpleBuildStep {
 
     @DataBoundConstructor
-    public PlotPublisher(Boolean enabled) {}
+    public PlotPipelinePublisher(Boolean enabled) {}
 
-    private static final Logger LOGGER = Logger.getLogger(PlotPublisher.class
+    private static final Logger LOGGER = Logger.getLogger(PlotPipelinePublisher.class
             .getName());
     /**
      * Array of Plot objects that represent the job's configured plots; must be
@@ -191,5 +191,5 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
         return Util.rawEncode(originalGroupToUrlGroup(originalGroup));
     }
 
-    public static final PlotDescriptor DESCRIPTOR = new PlotDescriptor();
+    public static final PlotPipelineDescriptor DESCRIPTOR = new PlotPipelineDescriptor();
 }

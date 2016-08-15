@@ -22,13 +22,13 @@ import java.io.IOException;
  *
  */
 @Extension
-public class PlotDescriptor extends BuildStepDescriptor<Publisher> {
+public class PlotPipelineDescriptor extends BuildStepDescriptor<Publisher> {
 
     /**
      * Standard Constructor.
      */
-    public PlotDescriptor() {
-        super(PlotPublisher.class);
+    public PlotPipelineDescriptor() {
+        super(PlotPipelinePublisher.class);
     }
 
     public String getDisplayName() {
@@ -46,7 +46,7 @@ public class PlotDescriptor extends BuildStepDescriptor<Publisher> {
     @Override
     public Publisher newInstance(StaplerRequest req, JSONObject formData)
             throws FormException {
-        PlotPublisher publisher = new PlotPublisher(true);
+        PlotPipelinePublisher publisher = new PlotPipelinePublisher(true);
         for (Object data : SeriesFactory.getArray(formData.get("plots"))) {
             publisher.addPlot(bindPlot((JSONObject) data, req));
         }

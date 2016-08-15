@@ -15,11 +15,11 @@ import java.util.List;
 public class PlotProjectAction implements Action{
 
     private final Job<?, ?> project;
-    private PlotPublisher publisher;
+    private PlotPipelinePublisher publisher;
 
     public PlotProjectAction(Job<?, ?> job, List<Plot> plots){
         this.project = job;
-        publisher = new PlotPublisher(true);
+        publisher = new PlotPipelinePublisher(true);
         if( plots != null ) {
             publisher.setPlots(plots);
         }
