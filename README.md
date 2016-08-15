@@ -1,12 +1,9 @@
 # Plot Plugin for Jenkins
-Working on adding Pipeline support to the Jenkins Plot Plugin.
 
-This is a beta version at best so use it as such.
-
-## Where are we?
+## Support
 Currently this plugin supports Pipeline by choosing `Plot build` from `step: General Build Step` in the `Snippet Generator`.
 
-Note that this is an ongoing project, feel free to contribute.
+This standalone plugin only supports Pipeline projects. Install original Plot plugin [found here] (https://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin) for additional Freestyle and Matrix support.
 
 ## Installation
 Use Maven to create a `.hpi` with:
@@ -20,7 +17,3 @@ In a Pipeline project, go to `Steps` and in `Sample Step` select `step: General 
 ```groovy
 step([$class: 'PlotBuilder', csvFileName: 'foo-bar.csv', csvSeries: [[displayTableFlag: false, exclusionValues: '', file: 'data.plot', inclusionFlag: 'OFF', url: '']], exclZero: false, group: 'Group1', keepRecords: false, logarithmic: false, numBuilds: '30', style: 'line', title: 'Title2', useDescr: false, yaxis: 'Sample', yaxisMaximum: '', yaxisMinimum: ''])
 ```
-
-# Caution
-The pipeline support has come at the cost of Freestyle support. In the beginning I tried to combine support for both Freestyle and Pipline, but in the end I decided to focus on support for Pipeline. You can find the original plot plugin [here]
-(https://github.com/jenkinsci/plot-plugin) or in your plugin handler in Jenkins. These two plugins should work togheter in Jenkins.
