@@ -1,4 +1,4 @@
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 import hudson.Launcher;
 import hudson.Extension;
 import hudson.FilePath;
@@ -120,7 +120,7 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
 
     public String getCsvFileName() {
         if ( StringUtils.isBlank(csvFileName)) {
-            csvFileName = "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
+            csvFileName = "plotpipeline-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
         }
         return csvFileName;
     }
@@ -134,7 +134,12 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
         plot.series = series;
         plot.addBuild(build, listener.getLogger(), workspace);
         plots.add(plot);
-        build.addAction( new PlotBuildAction( build, plots ) );
+        PlotBuildAction buildAction = build.getAction( PlotBuildAction.class );
+        if( buildAction == null ){
+            build.addAction( new PlotBuildAction( build, plots ) );
+        } else {
+            buildAction.addPlots( plots );
+        }
     }
 
     // Overridden for better type safety.
@@ -178,14 +183,14 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
 
         public boolean isApplicable(Class<? extends AbstractProject> aClass) {
             // Indicates that this builder can be used with all kinds of project types 
-            return true;
+            return false;
         }
 
         /**
          * This human readable group is used in the configuration screen.
          */
         public String getDisplayName() {
-            return "Plot build";
+            return "Plot build for Pipeline";
         }
 
         @Override

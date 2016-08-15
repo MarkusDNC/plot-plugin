@@ -2,7 +2,7 @@
  * Copyright (c) 2007-2009 Yahoo! Inc.  All rights reserved.
  * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.FilePath;
 import hudson.Launcher;
@@ -24,7 +24,7 @@ import java.util.*;
 import java.util.logging.Logger;
 
 /**
- * Records the plot data for builds.
+ * Records the plotpipeline data for builds.
  *
  * @author Nigel Daley
  */
@@ -41,7 +41,7 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
      */
     private List<Plot> plots = new ArrayList<Plot>();
     /**
-     * Maps plot groups to plot objects; group strings are in a URL friendly
+     * Maps plotpipeline groups to plotpipeline objects; group strings are in a URL friendly
      * format; map must be non-null
      */
     transient private Map<String, List<Plot>> groupMap = new HashMap<String, List<Plot>>();
@@ -55,7 +55,7 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
     }
 
     /**
-     * Converts a URL friendly plot group name to the original group name. If
+     * Converts a URL friendly plotpipeline group name to the original group name. If
      * the given urlGroup doesn't already exist then the empty string will be
      * returned.
      */
@@ -99,15 +99,15 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
     }
 
     /**
-     * Adds the new plot to the plot data structures managed by this object.
+     * Adds the new plotpipeline to the plotpipeline data structures managed by this object.
      *
      * @param plot
-     *            the new plot
+     *            the new plotpipeline
      */
     public void addPlot(Plot plot) {
-        // update the plot list
+        // update the plotpipeline list
         plots.add(plot);
-        // update the group-to-plot map
+        // update the group-to-plotpipeline map
         String urlGroup = originalGroupToUrlEncodedGroup(plot.getGroup());
         if (groupMap.containsKey(urlGroup)) {
             List<Plot> list = groupMap.get(urlGroup);
@@ -151,10 +151,10 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
 /*    @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher,
             BuildListener listener) throws IOException, InterruptedException {
-        listener.getLogger().println("Recording plot data");
-        // add the build to each plot
-        for (Plot plot : getPlots()) {
-            plot.addBuild(build, listener.getLogger());
+        listener.getLogger().println("Recording plotpipeline data");
+        // add the build to each plotpipeline
+        for (Plot plotpipeline : getPlots()) {
+            plotpipeline.addBuild(build, listener.getLogger());
         }
         // misconfigured plots will not fail a build so always return true
         return true;
@@ -169,8 +169,8 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
                         @Nonnull Launcher launcher,
                         @Nonnull TaskListener listener)
             throws InterruptedException, IOException {
-        listener.getLogger().println("Recording plot data");
-        // add the build to each plot
+        listener.getLogger().println("Recording plotpipeline data");
+        // add the build to each plotpipeline
         for (Plot plot : getPlots()) {
             plot.addBuild(run, listener.getLogger(), workspace);
         }
@@ -185,7 +185,7 @@ public class PlotPublisher extends Recorder implements SimpleBuildStep {
     }
 
     /**
-     * Converts the original plot group name to a URL friendly group name.
+     * Converts the original plotpipeline group name to a URL friendly group name.
      */
     public String originalGroupToUrlEncodedGroup(String originalGroup) {
         return Util.rawEncode(originalGroupToUrlGroup(originalGroup));

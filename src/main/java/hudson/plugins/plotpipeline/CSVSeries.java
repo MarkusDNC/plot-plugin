@@ -3,7 +3,7 @@
  * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import au.com.bytecode.opencsv.CSVReader;
 import hudson.Extension;
@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 /**
- * Represents a plot data series configuration from an CSV file.
+ * Represents a plotpipeline data series configuration from an CSV file.
  *
  * @author Allen Reese
  *
@@ -131,7 +131,7 @@ public class CSVSeries extends Series {
             }
 
             if (ArrayUtils.isEmpty(seriesFiles)) {
-                LOGGER.info("No plot data file found: "
+                LOGGER.info("No plotpipeline data file found: "
                         + workspaceRootDir.getName() + " " + getFile());
                 return null;
             }
@@ -139,12 +139,12 @@ public class CSVSeries extends Series {
             try {
                 if (LOGGER.isLoggable(defaultLogLevel))
                     LOGGER.log(defaultLogLevel,
-                            "Loading plot series data from: " + getFile());
+                            "Loading plotpipeline series data from: " + getFile());
 
                 in = seriesFiles[0].read();
             } catch (Exception e) {
                 LOGGER.log(Level.SEVERE,
-                        "Exception reading plot series data from "
+                        "Exception reading plotpipeline series data from "
                                 + seriesFiles[0], e);
                 return null;
             }
@@ -153,12 +153,12 @@ public class CSVSeries extends Series {
                 LOGGER.log(defaultLogLevel, "Loaded CSV Plot file: "
                         + getFile());
 
-            // load existing plot file
+            // load existing plotpipeline file
             inputReader = new InputStreamReader(in);
             reader = new CSVReader(inputReader);
             String[] nextLine;
 
-            // save the header line to use it for the plot labels.
+            // save the header line to use it for the plotpipeline labels.
             String[] headerLine = reader.readNext();
 
             // read each line of the CSV file and add to rawPlotData

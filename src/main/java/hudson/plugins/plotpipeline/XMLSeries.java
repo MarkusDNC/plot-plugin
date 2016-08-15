@@ -3,7 +3,7 @@
  * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.Extension;
 import hudson.FilePath;
@@ -31,7 +31,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Represents a plot data series configuration from an XML file.
+ * Represents a plotpipeline data series configuration from an XML file.
  * 
  * @author Allen Reese
  * 
@@ -215,21 +215,21 @@ public class XMLSeries extends Series {
             }
 
             if (ArrayUtils.isEmpty(seriesFiles)) {
-                LOGGER.info("No plot data file found: " + getFile());
+                LOGGER.info("No plotpipeline data file found: " + getFile());
                 return null;
             }
 
             try {
                 if (LOGGER.isLoggable(defaultLogLevel))
                     LOGGER.log(defaultLogLevel,
-                            "Loading plot series data from: " + getFile());
+                            "Loading plotpipeline series data from: " + getFile());
 
                 in = seriesFiles[0].read();
-                // load existing plot file
+                // load existing plotpipeline file
                 inputSource = new InputSource(in);
             } catch (Exception e) {
                 LOGGER.log(Level.SEVERE,
-                        "Exception reading plot series data from "
+                        "Exception reading plotpipeline series data from "
                                 + seriesFiles[0], e);
                 return null;
             }

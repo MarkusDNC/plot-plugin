@@ -2,7 +2,7 @@
  * Copyright (c) 2007 Yahoo! Inc.  All rights reserved.
  * Copyrights licensed under the MIT License.
  */
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.general.AbstractDataset;
@@ -46,7 +46,7 @@ public class PlotCategoryDataset extends AbstractDataset implements
     /** The row data */
     private transient List<Map<Comparable, DataElement>> data;
 
-    /** The max number of builds to plot */
+    /** The max number of builds to plotpipeline */
     private transient int maxColumns;
 
     /**
@@ -69,7 +69,7 @@ public class PlotCategoryDataset extends AbstractDataset implements
         this.maxColumns = maxColumns;
         // Columns are lazily truncated when the data is queried.
         // Rows that contain no data when the columns are truncated are
-        // removed here so that they don't show up in plot legends.
+        // removed here so that they don't show up in plotpipeline legends.
         if (getColumnCount() > 0) {
             Comparable lowColumn = getColumnKey(0);
             for (int i = data.size() - 1; i >= 0; i--) {

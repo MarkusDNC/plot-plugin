@@ -20,19 +20,13 @@
         <jenkins-test-harness.version>2.1</jenkins-test-harness.version>
         <!-- Skip javadoc generator -->
         <maven.javadoc.skip>true</maven.javadoc.skip>
-        <!-- Skip findbugs -->
-        <maven.findbugs.skip>false</maven.findbugs.skip>
 
-        <!-- Other properties you may want to use:
-             ~ hpi-plugin.version: The HPI Maven Plugin version used by the plugin..
-             ~ stapler-plugin.version: The Stapler Maven plugin version required by the plugin.
-        -->
     </properties>
 
-    <artifactId>plot</artifactId>
+    <artifactId>plot-pipeline</artifactId>
     <packaging>hpi</packaging>
-    <name>Plot plugin</name>
-    <version>1.10-SNAPSHOT</version>
+    <name>Plot plugin for Pipeline</name>
+    <version>1.0</version>
     <!-- <url>http://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin</url> -->
     <url>https://github.com/MarkusDNC/plot-plugin</url>
 
@@ -104,6 +98,7 @@
         </plugins>
     </build>
 
+    <!-- Original Plot plugin -->
     <scm>
         <connection>scm:git:ssh://github.com/jenkinsci/plot-plugin.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/jenkinsci/plot-plugin.git</developerConnection>

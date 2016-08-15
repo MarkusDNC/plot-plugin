@@ -3,7 +3,7 @@
  * The copyrights to the contents of this file are licensed under the MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
@@ -41,21 +41,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Represents the configuration for a single plot. A plot can have one or more
+ * Represents the configuration for a single plotpipeline. A plotpipeline can have one or more
  * data series (lines). Each data series has one data point per build. The
  * x-axis is always the build number.
  *
- * A plot has the following characteristics:
+ * A plotpipeline has the following characteristics:
  * <ul>
  * <li>a title (mandatory)
  * <li>y-axis label (defaults to no label)
  * <li>one or more data series
- * <li>plot group (defaults to no group)
- * <li>number of builds to show on the plot (defaults to all)
+ * <li>plotpipeline group (defaults to no group)
+ * <li>number of builds to show on the plotpipeline (defaults to all)
  * </ul>
  *
  * A plots group effects the way in which plots are displayed. Group names are
- * listed as links on the top-level plot page. The user then clicks on a group
+ * listed as links on the top-level plotpipeline page. The user then clicks on a group
  * and sees the plots that belong to that group.
  *
  * @author Nigel Daley
@@ -73,13 +73,13 @@ public class Plot implements Comparable<Plot> {
     private transient List<String[]> rawPlotData;
 
     /**
-     * The generated plot, which is only regenerated when new data is added (it
+     * The generated plotpipeline, which is only regenerated when new data is added (it
      * is re-rendered, however, every time it is requested).
      */
     private transient JFreeChart plot;
 
     /**
-     * The project (or job) that this plot belongs to. A reference to the
+     * The project (or job) that this plotpipeline belongs to. A reference to the
      * project is needed to retrieve and save the CSV file that is stored in the
      * project's root directory.
      */
@@ -91,40 +91,40 @@ public class Plot implements Comparable<Plot> {
             DefaultDrawingSupplier.DEFAULT_OUTLINE_PAINT_SEQUENCE,
             DefaultDrawingSupplier.DEFAULT_STROKE_SEQUENCE,
             DefaultDrawingSupplier.DEFAULT_OUTLINE_STROKE_SEQUENCE,
-            // the plot data points are a small diamond shape
+            // the plotpipeline data points are a small diamond shape
             new Shape[] { new Polygon(new int[] { 3, 0, -3, 0 }, new int[] { 0,
                     4, 0, -4 }, 4) });
 
-    /** The default plot width. */
+    /** The default plotpipeline width. */
     private static final int DEFAULT_WIDTH = 750;
 
-    /** The default plot height. */
+    /** The default plotpipeline height. */
     private static final int DEFAULT_HEIGHT = 450;
 
-    /** The default number of builds on plot (all). */
+    /** The default number of builds on plotpipeline (all). */
     private static final String DEFAULT_NUMBUILDS = "";
 
     // Transient values
 
-    /** The width of the plot. */
+    /** The width of the plotpipeline. */
     private transient int width;
 
-    /** The height of the plot. */
+    /** The height of the plotpipeline. */
     private transient int height;
 
-    /** The right-most build number on the plot. */
+    /** The right-most build number on the plotpipeline. */
     private transient int rightBuildNum;
 
-    /** Whether or not the plot has a legend. */
+    /** Whether or not the plotpipeline has a legend. */
     private transient boolean hasLegend = true;
 
-    /** Number of builds back to show on this plot from url. */
+    /** Number of builds back to show on this plotpipeline from url. */
     public transient String urlNumBuilds;
 
-    /** Title of plot from url. */
+    /** Title of plotpipeline from url. */
     public transient String urlTitle;
 
-    /** Style of plot from url. */
+    /** Style of plotpipeline from url. */
     public transient String urlStyle;
 
     /** Use description flag from url. */
@@ -132,7 +132,7 @@ public class Plot implements Comparable<Plot> {
 
     // Configuration values
 
-    /** Title of plot. Mandatory. */
+    /** Title of plotpipeline. Mandatory. */
     public String title;
 
     /** Y-axis label. Optional. */
@@ -141,11 +141,11 @@ public class Plot implements Comparable<Plot> {
     /** List of data series. */
     public List<Series> series;
 
-    /** Group name that this plot belongs to. */
+    /** Group name that this plotpipeline belongs to. */
     public String group;
 
     /**
-     * Number of builds back to show on this plot. Empty string means all
+     * Number of builds back to show on this plotpipeline. Empty string means all
      * builds. Must not be "0".
      */
     public String numBuilds;
@@ -153,14 +153,14 @@ public class Plot implements Comparable<Plot> {
     /**
      * The name of the CSV file that persists the plots data. The CSV file is
      * stored in the projects root directory. This is different from the source
-     * csv file that can be used as a source for the plot.
+     * csv file that can be used as a source for the plotpipeline.
      */
     public String csvFileName;
 
     /** The date of the last change to the CSV file. */
     private long csvLastModification;
 
-    /** Optional style of plot: line, line3d, stackedArea, stackedBar, etc. */
+    /** Optional style of plotpipeline: line, line3d, stackedArea, stackedBar, etc. */
     public String style;
 
     /** Whether or not to use build descriptions as X-axis labels. Optional. */
@@ -180,7 +180,7 @@ public class Plot implements Comparable<Plot> {
     public String yaxisMaximum;
 
     /**
-     * Creates a new plot with the given paramenters. If numBuilds is the empty
+     * Creates a new plotpipeline with the given paramenters. If numBuilds is the empty
      * string, then all builds will be included. Must not be zero.
      */
     @DataBoundConstructor
@@ -296,7 +296,7 @@ public class Plot implements Comparable<Plot> {
     public String getCsvFileName() {
         if (StringUtils.isBlank(csvFileName) && job != null) {
             try {
-                csvFileName = File.createTempFile("plot-", ".csv", job.getRootDir()).getName();
+                csvFileName = File.createTempFile("plotpipeline-", ".csv", job.getRootDir()).getName();
             } catch (IOException e) {
                 LOGGER.log(Level.SEVERE, "Unable to create temporary CSV file.", e);
             }
@@ -305,7 +305,7 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Sets the title for the plot from the "title" parameter in the given
+     * Sets the title for the plotpipeline from the "title" parameter in the given
      * StaplerRequest.
      */
     private void setTitle(StaplerRequest req) {
@@ -343,7 +343,7 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Sets the number of builds to plot from the "numbuilds" parameter in the
+     * Sets the number of builds to plotpipeline from the "numbuilds" parameter in the
      * given StaplerRequest. If the parameter doesn't exist or isn't an integer
      * then a default is used.
      */
@@ -358,7 +358,7 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Sets the number of builds to plot from the "numbuilds" parameter in the
+     * Sets the number of builds to plotpipeline from the "numbuilds" parameter in the
      * given StaplerRequest. If the parameter doesn't exist or isn't an integer
      * then a default is used.
      */
@@ -384,7 +384,7 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Sets the right-most build number shown on the plot from the
+     * Sets the right-most build number shown on the plotpipeline from the
      * "rightbuildnum" parameter in the given StaplerRequest. If the parameter
      * doesn't exist or isn't an integer then a default is used.
      */
@@ -407,7 +407,7 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Sets the plot width from the "width" parameter in the given
+     * Sets the plotpipeline width from the "width" parameter in the given
      * StaplerRequest. If the parameter doesn't exist or isn't an integer then a
      * default is used.
      */
@@ -430,7 +430,7 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Sets the plot height from the "height" parameter in the given
+     * Sets the plotpipeline height from the "height" parameter in the given
      * StaplerRequest. If the parameter doesn't exist or isn't an integer then a
      * default is used.
      */
@@ -469,7 +469,7 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Generates and writes the plot to the response output stream.
+     * Generates and writes the plotpipeline to the response output stream.
      *
      * @param req
      *            the incoming request
@@ -492,14 +492,14 @@ public class Plot implements Comparable<Plot> {
         setTitle(req);
         setStyle(req);
         setUseDescr(req);
-        // need to force regenerate the plot in case build
+        // need to force regenerate the plotpipeline in case build
         // descriptions (used for tool tips) have changed
         generatePlot(true);
         ChartUtil.generateGraph(req, rsp, plot, getWidth(), getHeight());
     }
 
     /**
-     * Generates and writes the plot's clickable map to the response output
+     * Generates and writes the plotpipeline's clickable map to the response output
      * stream.
      *
      * @param req
@@ -532,9 +532,9 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Called when a build completes. Adds the finished build to this plot. This
+     * Called when a build completes. Adds the finished build to this plotpipeline. This
      * method extracts the data for each data series from the build and saves it
-     * in the plot's CSV file.
+     * in the plotpipeline's CSV file.
      *
      * @param run
      * @param logger
@@ -543,7 +543,7 @@ public class Plot implements Comparable<Plot> {
         if (job == null)
             job = run.getParent();
 
-        // load the existing plot data from disk
+        // load the existing plotpipeline data from disk
         loadPlotData();
         // extract the data for each data series
         for (Series series : getSeries()) {
@@ -565,15 +565,15 @@ public class Plot implements Comparable<Plot> {
             }
         }
 
-        // save the updated plot data to disk
+        // save the updated plotpipeline data to disk
         savePlotData();
     }
 
     /**
-     * Generates the plot and stores it in the plot instance variable.
+     * Generates the plotpipeline and stores it in the plotpipeline instance variable.
      *
      * @param forceGenerate
-     *            if true, force the plot to be re-generated even if the on-disk
+     *            if true, force the plotpipeline to be re-generated even if the on-disk
      *            data hasn't changed
      */
     private void generatePlot(boolean forceGenerate) {
@@ -619,19 +619,19 @@ public class Plot implements Comparable<Plot> {
                 return text != null ? text : numDateString();
             }
         }
-        // LOGGER.info("Determining if we should generate plot " +
+        // LOGGER.info("Determining if we should generate plotpipeline " +
         // getCsvFileName());
         File csvFile = new File(job.getRootDir(), getCsvFileName());
         if (csvFile.lastModified() == csvLastModification && plot != null
                 && !forceGenerate) {
-            // data hasn't changed so don't regenerate the plot
+            // data hasn't changed so don't regenerate the plotpipeline
             return;
         }
         if (rawPlotData == null || csvFile.lastModified() > csvLastModification) {
             // data has changed or has not been loaded so load it now
             loadPlotData();
         }
-        // LOGGER.info("Generating plot " + getCsvFileName());
+        // LOGGER.info("Generating plotpipeline " + getCsvFileName());
         csvLastModification = csvFile.lastModified();
         PlotCategoryDataset dataset = new PlotCategoryDataset();
         for (String[] record : rawPlotData) {
@@ -865,13 +865,13 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Loads the plot data from the CSV file on disk. The CSV file is stored in
+     * Loads the plotpipeline data from the CSV file on disk. The CSV file is stored in
      * the projects root directory. The data is stored in the rawPlotData
      * instance variable.
      */
     private void loadPlotData() {
         rawPlotData = new ArrayList<String[]>();
-        // load existing plot file
+        // load existing plotpipeline file
         File plotFile = new File(job.getRootDir(), getCsvFileName());
         if (!plotFile.exists()) {
             return;
@@ -889,7 +889,7 @@ public class Plot implements Comparable<Plot> {
                 rawPlotData.add(nextLine);
             }
         } catch (IOException ioe) {
-            LOGGER.log(Level.SEVERE, "Exception reading plot file", ioe);
+            LOGGER.log(Level.SEVERE, "Exception reading plotpipeline file", ioe);
         } finally {
             if (reader != null) {
                 try {
@@ -902,7 +902,7 @@ public class Plot implements Comparable<Plot> {
     }
 
     /**
-     * Saves the plot data to the CSV file on disk. The CSV file is stored in
+     * Saves the plotpipeline data to the CSV file on disk. The CSV file is stored in
      * the projects root directory. The data is read from the rawPlotData
      * instance variable.
      */
@@ -926,7 +926,7 @@ public class Plot implements Comparable<Plot> {
                 }
             }
         } catch (IOException ioe) {
-            LOGGER.log(Level.SEVERE, "Exception saving plot file", ioe);
+            LOGGER.log(Level.SEVERE, "Exception saving plotpipeline file", ioe);
         } finally {
             if (writer != null) {
                 try {

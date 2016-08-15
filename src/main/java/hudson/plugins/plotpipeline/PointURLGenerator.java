@@ -2,7 +2,7 @@
  * Copyright (c) 2007 Yahoo! Inc.  All rights reserved.  
  * Copyrights licensed under the MIT License.
  */
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import org.jfree.chart.urls.CategoryURLGenerator;
 import org.jfree.data.category.CategoryDataset;

@@ -1,4 +1,4 @@
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.Extension;
 import hudson.FilePath;
@@ -15,7 +15,7 @@ import org.kohsuke.stapler.StaplerRequest;
 import java.io.IOException;
 
 /**
- * The Descriptor for the plot configuration Extension
+ * The Descriptor for the plotpipeline configuration Extension
  *
  * @author Nigel Daley
  * @author Thomas Fox
@@ -65,6 +65,11 @@ public class PlotDescriptor extends BuildStepDescriptor<Publisher> {
     public FormValidation doCheckSeriesFile(
             @AncestorInPath Job<?, ?> project,
             @QueryParameter String value) throws IOException {
-        return new FilePath( project.getRootDir() ).validateFileMask(value);
+        FilePath fp = new FilePath( new FilePath( project.getRootDir() ), "workspace" );
+        //Check if workspace folder is missing form root directory
+        if ( fp.validateFileMask( value ) == null ) {
+            return new FilePath( project.getRootDir() ).validateFileMask( value );
+        }
+         return fp.validateFileMask( value );
     }
 }

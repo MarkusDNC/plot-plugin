@@ -1,4 +1,4 @@
-package hudson.plugins.plot;
+package hudson.plugins.plotpipeline;
 
 import hudson.model.Action;
 import hudson.model.InvisibleAction;
@@ -33,5 +33,9 @@ public class PlotBuildAction extends InvisibleAction implements StaplerProxy, Si
     @Override
     public Object getTarget() {
         return null;
+    }
+
+    public void addPlots( List<Plot> plots ) {
+        this.plots.addAll( plots );
     }
 }
