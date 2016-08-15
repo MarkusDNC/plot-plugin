@@ -6,7 +6,7 @@ Currently this plugin supports Pipeline by choosing `Plot build` from `step: Gen
 This standalone plugin only supports Pipeline projects. Install original Plot plugin [found here] (https://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin) for additional Freestyle and Matrix support.
 
 ## Installation
-Use Maven to create a `.hpi` with:
+Install [Maven] (https://maven.apache.org/guides/getting-started/windows-prerequisites.html) and use it to create a `.hpi` with:
 ```
 mvn install
 ```
