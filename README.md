@@ -13,7 +13,8 @@ mvn install
 This will create the file `plot-plugin.hpi` in the target folder. Upload this file in your plugin handler in Jenkins under the Advanced tab.
 
 ## Using
-In a Pipeline project, go to `Steps` and in `Sample Step` select `step: General Build Step`. Finally in `Build Step` select `Plot build`. Now you are presented with the form where you fill in the desired values before pressing `Generate Groovy`. It should look like something like this:
+In a Pipeline project, choose ==Snippet Generator== (`Pipeline Syntax` in Jenkins v2.x), select ==step: General Build Step==. Now in ==Build Step== select ==Plot build==. Now you are presented with the form where you fill in the desired values before pressing ==Generate Groovy==. It should look something like this:
 ```groovy
 step([$class: 'PlotBuilder', csvFileName: 'foo-bar.csv', csvSeries: [[displayTableFlag: false, exclusionValues: '', file: 'data.plot', inclusionFlag: 'OFF', url: '']], exclZero: false, group: 'Group1', keepRecords: false, logarithmic: false, numBuilds: '30', style: 'line', title: 'Title2', useDescr: false, yaxis: 'Sample', yaxisMaximum: '', yaxisMinimum: ''])
 ```
+==Testing==
