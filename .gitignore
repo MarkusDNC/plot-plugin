@@ -1,8 +1,13 @@
-target
 work
 .classpath
 .project
 .settings
+
+### Unignore plot-pipeline.hpi ###
+##################################
+!target/
+target/*
+!target/plot-pipeline.hpi
 
 # Compiled source #
 ###################
@@ -28,7 +33,6 @@ work
 
 # Logs and databases #
 ######################
-*.log
 *.sql
 *.sqlite
 
@@ -45,5 +49,6 @@ Thumbs.db
 
 # User specific files #
 #######################
-**/.idea/*
 *.iml
+.idea/
+target/

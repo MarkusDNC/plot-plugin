@@ -12,6 +12,8 @@ mvn install
 ```
 This will create the file `plot-plugin.hpi` in the target folder. Upload this file in your plugin handler in Jenkins under the Advanced tab.
 
+A prebuild plot-pipeline.hpi can be found in the target folder.
+
 ## Using
 In a Pipeline project, choose `Snippet Generator` (`Pipeline Syntax` in Jenkins v2.x), select `step: General Build Step`. Now in `Build Step` select `Plot build`. Now you are presented with the form where you fill in the desired values before pressing `Generate Groovy`. It should look something like this:
 ```groovy
