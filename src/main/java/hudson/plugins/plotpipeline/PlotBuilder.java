@@ -119,7 +119,7 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
     public List<XMLSeries> getXmlSeries() { return xmlSeries; }
 
     public String getCsvFileName() {
-        return "plotpipeline-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
+        return "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
     }
 
     @Override
