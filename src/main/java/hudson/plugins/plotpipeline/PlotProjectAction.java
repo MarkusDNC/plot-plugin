@@ -3,6 +3,8 @@ package hudson.plugins.plotpipeline;
 import hudson.model.Action;
 import hudson.model.Job;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
+import org.kohsuke.stapler.StaplerProxy;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
@@ -12,7 +14,7 @@ import java.util.List;
 /**
  * Created by max on 2016-06-20.
  */
-public class PlotProjectAction implements Action{
+public class PlotProjectAction implements Action, StaplerProxy{
 
     private final Job<?, ?> project;
     private PlotPipelinePublisher publisher;
@@ -23,6 +25,10 @@ public class PlotProjectAction implements Action{
         if( plots != null ) {
             publisher.setPlots(plots);
         }
+    }
+
+    public String getUniqueName() {
+        return "plotpipeline-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
     }
 
     @Override

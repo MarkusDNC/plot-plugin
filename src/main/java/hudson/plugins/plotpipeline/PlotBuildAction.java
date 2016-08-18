@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by max on 2016-06-20.
+ * Created by Markus Axelsson on 2016-06-20.
  */
 @ExportedBean
 public class PlotBuildAction extends InvisibleAction implements StaplerProxy, SimpleBuildStep.LastBuildAction{

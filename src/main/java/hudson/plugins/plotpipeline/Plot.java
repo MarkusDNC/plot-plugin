@@ -296,7 +296,7 @@ public class Plot implements Comparable<Plot> {
     public String getCsvFileName() {
         if (StringUtils.isBlank(csvFileName) && job != null) {
             try {
-                csvFileName = File.createTempFile("plotpipeline-", ".csv", job.getRootDir()).getName();
+                csvFileName = File.createTempFile("plot-", ".csv", job.getRootDir()).getName();
             } catch (IOException e) {
                 LOGGER.log(Level.SEVERE, "Unable to create temporary CSV file.", e);
             }

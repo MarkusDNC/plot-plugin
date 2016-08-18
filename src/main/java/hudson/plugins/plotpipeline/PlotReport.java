@@ -21,13 +21,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Represents a plotpipeline report for a single group of plots.
+ * Represents a plot report for a single group of plots.
  *
  * @author Nigel Daley
  */
 public class PlotReport {
-    private static final Logger LOGGER = Logger.getLogger(PlotReport.class
-            .getName());
+    private static final Logger LOGGER = Logger.getLogger(PlotReport.class.getName());
 
     private final Job<?, ?> project;
 
@@ -51,16 +50,19 @@ public class PlotReport {
 
     // called from PlotReport/index.jelly
     public Job<?, ?> getProject() {
+        System.out.println( "### getProject ###" );
         return project;
     }
 
     // called from PlotReport/index.jelly
     public String getGroup() {
+        System.out.println( "### getGroup: " + group + " ###" );
         return group;
     }
 
     // called from PlotReport/index.jelly
     public List<Plot> getPlots() {
+        System.out.println( "### getPlots ###" );
         return plots;
     }
 
@@ -88,6 +90,7 @@ public class PlotReport {
 
     // called from PlotReport/index.jelly
     public boolean getDisplayTableFlag(int i) {
+        System.out.println( "### getDisplayTableFlag ###" );
         Plot plot = getPlot(i);
 
         if (CollectionUtils.isNotEmpty(plot.getSeries())) {
@@ -100,6 +103,7 @@ public class PlotReport {
 
     // called from PlotReport/index.jelly
     public List<List<String>> getTable(int i) {
+        System.out.println( "### getTable ###" );
         List<List<String>> tableData = new ArrayList<List<String>>();
 
         Plot plot = getPlot(i);
