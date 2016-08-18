@@ -27,10 +27,6 @@ public class PlotProjectAction implements Action, StaplerProxy{
         }
     }
 
-    public String getUniqueName() {
-        return "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
-    }
-
     @Override
     public String getIconFileName() {
         return "graph.gif";

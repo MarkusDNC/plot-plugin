@@ -8,14 +8,13 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
          xmlns:t="/lib/hudson" xmlns:f="/lib/form">
     <f:entry>
-        ${it.displayName}
         <table width="100%">
             <f:entry title="${%Plot group}" field="group" help="/plugin/plot-pipeline/help-group.html">
                 <f:textbox name="group" value="${plot.group}" clazz="required"/>
             </f:entry>
 
             <f:entry title="${%CSV filename *}" field="csvFileName" help="/plugin/plot-pipeline/help-csvfile.html">
-                <f:textbox name="csvFileName" value="${plot.csvFileName}" clazz="required" default="${it.csvFileName}"/>
+                <f:textbox name="csvFileName" value="${plot.csvFileName}" clazz="required" default="${descriptor.csvFileName}"/>
             </f:entry>
 
             <f:entry title="${%Plot title}" field="title" help="/plugin/plot-pipeline/help-title.html">

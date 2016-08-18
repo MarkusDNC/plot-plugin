@@ -165,6 +165,10 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
             load();
         }
 
+        public String getCsvFileName() {
+            return "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
+        }
+
         public FormValidation doCheckName(@QueryParameter String value)
                 throws IOException, ServletException {
             if (value.length() == 0)
@@ -192,11 +196,6 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
             save();
             return super.configure(req,formData);
         }
-
-        public String getCsvFileName() {
-            return "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
-        }
-
     }
 }
 

@@ -10,7 +10,7 @@
         <st:include it="${it.project}" page="sidepanel.jelly"/>
         <l:main-panel>
             <h1>${%Plot Groups}</h1>
-            ${it.uniqueName}
+            <!--<f:textbox default="${it.uniqueName}"></f:textbox>-->
             <j:choose>
                 <j:when test="${it.hasPlots()}">
                     <p>
