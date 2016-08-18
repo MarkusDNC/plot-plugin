@@ -28,7 +28,7 @@ public class PlotProjectAction implements Action, StaplerProxy{
     }
 
     public String getUniqueName() {
-        return "plotpipeline-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
+        return "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
     }
 
     @Override
@@ -38,7 +38,6 @@ public class PlotProjectAction implements Action, StaplerProxy{
 
     @Override
     public String getDisplayName() {
-        //return "Plots";
         return Messages.Plot_Action_DisplayName();
     }
 

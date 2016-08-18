@@ -15,7 +15,7 @@
             </f:entry>
 
             <f:entry title="${%CSV filename *}" field="csvFileName" help="/plugin/plot-pipeline/help-csvfile.html">
-                <f:textbox name="csvFileName" value="${plot.csvFileName}" clazz="required" default="${it.displayName}"/>
+                <f:textbox name="csvFileName" value="${plot.csvFileName}" clazz="required" default="${it.csvFileName}"/>
             </f:entry>
 
             <f:entry title="${%Plot title}" field="title" help="/plugin/plot-pipeline/help-title.html">
