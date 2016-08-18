@@ -118,10 +118,6 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
 
     public List<XMLSeries> getXmlSeries() { return xmlSeries; }
 
-    public String getCsvFileName() {
-        return "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
-    }
-
     @Override
     public void perform(Run<?,?> build, FilePath workspace, Launcher launcher, TaskListener listener) {
         // This is where you 'build' the project.
@@ -195,6 +191,10 @@ public class PlotBuilder extends Builder implements SimpleBuildStep {
 
             save();
             return super.configure(req,formData);
+        }
+
+        public String getCsvFileName() {
+            return "plot-" + String.valueOf( (int)Math.round( Math.random() * 100000000 ) ) + ".csv";
         }
 
     }
