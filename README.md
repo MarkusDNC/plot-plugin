@@ -8,7 +8,7 @@ This standalone plugin only supports Pipeline projects. Install original Plot pl
 ## Installation
 A prebuild plot-pipeline.hpi can be found in the target folder.
 
-####or
+#### or
 
 Install [Maven] (https://maven.apache.org/guides/getting-started/windows-prerequisites.html) and use it to create a `.hpi` with:
 ```
